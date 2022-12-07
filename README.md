@@ -7,15 +7,15 @@ This repo builds and publishes the Terraform zenduty Provider bindings for [CDK 
 
 ### NPM
 
-The npm package is available at [https://www.npmjs.com/package/@cdktf/provider-zenduty](https://www.npmjs.com/package/@cdktf/provider-zenduty).
+The npm package is available at [https://www.npmjs.com/package/@skeptools/provider-zenduty](https://www.npmjs.com/package/@skeptools/provider-zenduty).
 
-`npm install @cdktf/provider-zenduty`
+`npm install @skeptools/provider-zenduty`
 
 ### PyPI
 
-The PyPI package is available at [https://pypi.org/project/cdktf-cdktf-provider-zenduty](https://pypi.org/project/cdktf-cdktf-provider-zenduty).
+The PyPI package is available at [https://pypi.org/project/skeptools-cdktf-provider-zenduty](https://pypi.org/project/skeptools-cdktf-provider-zenduty).
 
-`pipenv install cdktf-cdktf-provider-zenduty`
+`pipenv install skeptools-cdktf-provider-zenduty`
 
 ### Nuget
 
@@ -38,9 +38,9 @@ The Maven package is available at [https://mvnrepository.com/artifact/com.hashic
 
 ### Go
 
-The go package is generated into the [`github.com/cdktf/cdktf-provider-zenduty-go`](https://github.com/cdktf/cdktf-provider-zenduty-go) package.
+The go package is generated into the [`github.com/skeptools/cdktf-provider-zenduty-go`](https://github.com/skeptools/cdktf-provider-zenduty-go) package.
 
-`go get github.com/cdktf/cdktf-provider-zenduty-go/zenduty`
+`go get github.com/skeptools/cdktf-provider-zenduty-go/zenduty`
 
 ## Docs
 

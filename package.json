@@ -1,9 +1,9 @@
 {
-  "name": "@cdktf/provider-zenduty",
+  "name": "@skeptools/provider-zenduty",
   "description": "Prebuilt zenduty Provider for Terraform CDK (cdktf)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cdktf/cdktf-provider-zenduty.git"
+    "url": "https://github.com/skeptools/cdktf-provider-zenduty.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -91,15 +91,15 @@
         }
       },
       "python": {
-        "distName": "cdktf-cdktf-provider-zenduty",
-        "module": "cdktf_cdktf_provider_zenduty"
+        "distName": "skeptools-cdktf-provider-zenduty",
+        "module": "skeptools_cdktf_provider_zenduty"
       },
       "dotnet": {
         "namespace": "HashiCorp.Cdktf.Providers.Zenduty",
         "packageId": "HashiCorp.Cdktf.Providers.Zenduty"
       },
       "go": {
-        "moduleName": "github.com/cdktf/cdktf-provider-zenduty-go",
+        "moduleName": "github.com/skeptools/cdktf-provider-zenduty-go",
         "packageName": "zenduty"
       }
     },

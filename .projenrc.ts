@@ -9,6 +9,7 @@ const project = new CdktfProviderProject({
   defaultReleaseBranch: "main",
   devDeps: ["@cdktf/provider-project"],
   name: "@skeptools/cdktf-provider-zenduty",
+  githubNamespace: "skeptools",
   projenrcTs: true,
   repositoryUrl: "git@github.com:skeptools/cdktf-provider-zenduty.git",
   terraformProvider: "Zenduty/zenduty@~> 0",

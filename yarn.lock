@@ -940,7 +940,7 @@ case@^1.6.3:
   resolved "https://registry.yarnpkg.com/case/-/case-1.6.3.tgz#0a4386e3e9825351ca2e6216c60467ff5f1ea1c9"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdktf-cli@undefined:
+cdktf-cli@^0.14.0:
   version "0.14.3"
   resolved "https://registry.yarnpkg.com/cdktf-cli/-/cdktf-cli-0.14.3.tgz#33bd5f112b3d71157ba6d013f2983bf94b874e29"
   integrity sha512-yT1NM/fBauOp2NYEftHLood35jESa72Bbxs/0jYKMP9di0tEWY5tblFyhfFnWqMMtwMlrJbnTzPb8T7sNc5eZg==
@@ -967,7 +967,7 @@ cdktf-cli@undefined:
     yoga-layout-prebuilt "^1.10.0"
     zod "^1.11.17"
 
-cdktf@0.14.3, cdktf@undefined:
+cdktf@0.14.3, cdktf@^0.14.0:
   version "0.14.3"
   resolved "https://registry.yarnpkg.com/cdktf/-/cdktf-0.14.3.tgz#d37f35d7af3b1984541581cc9428bafd682f5494"
   integrity sha512-sVxp6xfzEoOCejixLgeaQo9mQPEImFa7JSWoOMIyxlA0NFVPrEWMvPcfM5iONCd1m8tU6w++RZG0Q9bLPn3Lgw==
@@ -1217,7 +1217,7 @@ constant-case@^3.0.4:
     tslib "^2.0.3"
     upper-case "^2.0.2"
 
-constructs@^10.0.25, constructs@undefined:
+constructs@^10.0.0, constructs@^10.0.25:
   version "10.1.182"
   resolved "https://registry.yarnpkg.com/constructs/-/constructs-10.1.182.tgz#6570e2273c90ae8bb5eaf0712e04c9382ff90fa6"
   integrity sha512-bJfeRR2XucJB3VfHYh+vOHnOa4fQ+yhJ0lukmbyZO8Gfeiuslj4HUcWdS8JBy98Ca7jNa4682rGpzPoMj53qiA==

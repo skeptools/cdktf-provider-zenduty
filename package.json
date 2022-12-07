@@ -146,8 +146,8 @@
   },
   "cdktf": {
     "provider": {
-      "name": "<unknown>",
-      "version": "<unknown>"
+      "name": "registry.terraform.io/zenduty/zenduty",
+      "version": "0.1.9"
     }
   },
   "resolutions": {

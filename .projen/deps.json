@@ -7,7 +7,6 @@
     },
     {
       "name": "@cdktf/provider-project",
-      "version": "^0.2.8",
       "type": "build"
     },
     {
@@ -45,6 +44,7 @@
     },
     {
       "name": "jsii-docgen",
+      "version": ">=7.1.2",
       "type": "build"
     },
     {

@@ -257,7 +257,7 @@ export class DataZendutyAlertrules extends cdktf.TerraformDataSource {
       terraformResourceType: 'zenduty_alertrules',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.3',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

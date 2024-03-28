@@ -12,7 +12,7 @@
     },
     {
       "name": "@types/node",
-      "version": "^16",
+      "version": "^16 <= 16.18.78",
       "type": "build"
     },
     {
@@ -41,11 +41,16 @@
     },
     {
       "name": "jsii-docgen",
-      "version": ">=7.1.2",
+      "version": "^10.2.3",
       "type": "build"
     },
     {
       "name": "jsii-pacmak",
+      "type": "build"
+    },
+    {
+      "name": "jsii-rosetta",
+      "version": "~5.2.0",
       "type": "build"
     },
     {
@@ -54,17 +59,12 @@
       "type": "build"
     },
     {
-      "name": "node-fetch",
-      "version": "cjs",
-      "type": "build"
-    },
-    {
-      "name": "npm-check-updates",
-      "version": "^16",
-      "type": "build"
-    },
-    {
       "name": "projen",
+      "type": "build"
+    },
+    {
+      "name": "semver",
+      "version": "^7.5.3",
       "type": "build"
     },
     {

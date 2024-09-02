@@ -2,9 +2,8 @@
 
 name: alert-open-prs
 on:
-  workflow_dispatch: {}
   schedule:
-    - cron: "* */12 * * 1-5"
+    - cron: 9 14 * * 1-5
 jobs:
   check-open-prs:
     runs-on: ubuntu-latest
@@ -25,8 +24,9 @@ jobs:
           fi
       - name: Alert Slack on old PRs
         if: ${{ steps.old_prs.outputs.pr_links }}
-        uses: slackapi/slack-github-action@v1.23.0
+        uses: slackapi/slack-github-action@70cd7be8e40a46e8b0eced40b0de447bdb42f68e
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.ALERT_PRS_SLACK_WEBHOOK_URL }}
         with:
           payload: "{\"pr_links\":\"${{ join(fromJSON(steps.old_prs.outputs.pr_links), ', ') }}\"}"
+    continue-on-error: true

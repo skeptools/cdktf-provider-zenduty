@@ -58,7 +58,7 @@ export class NotificationRules extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_notification_rules',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

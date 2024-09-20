@@ -54,7 +54,7 @@ export class Member extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_member',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

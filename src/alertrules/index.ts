@@ -216,7 +216,7 @@ export class Alertrules extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_alertrules',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

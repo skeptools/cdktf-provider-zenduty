@@ -973,12 +973,12 @@ import "github.com/skeptools/cdktf-provider-zenduty-go/zenduty/schedules"
 
 &schedules.SchedulesLayers {
 	Name: *string,
-	RotationEndTime: *string,
 	RotationStartTime: *string,
 	ShiftLength: *f64,
 	Users: *[]*string,
 	Restrictions: interface{},
 	RestrictionType: *f64,
+	RotationEndTime: *string,
 }
 ```
 
@@ -987,12 +987,12 @@ import "github.com/skeptools/cdktf-provider-zenduty-go/zenduty/schedules"
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.name">Name</a></code> | <code>*string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#name Schedules#name}. |
-| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime">RotationEndTime</a></code> | <code>*string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationStartTime">RotationStartTime</a></code> | <code>*string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_start_time Schedules#rotation_start_time}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.shiftLength">ShiftLength</a></code> | <code>*f64</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#shift_length Schedules#shift_length}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.users">Users</a></code> | <code>*[]*string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#users Schedules#users}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.restrictions">Restrictions</a></code> | <code>interface{}</code> | restrictions block. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.restrictionType">RestrictionType</a></code> | <code>*f64</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#restriction_type Schedules#restriction_type}. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime">RotationEndTime</a></code> | <code>*string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}. |
 
 ---
 
@@ -1005,18 +1005,6 @@ Name *string
 - *Type:* *string
 
 Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#name Schedules#name}.
-
----
-
-##### `RotationEndTime`<sup>Required</sup> <a name="RotationEndTime" id="@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime"></a>
-
-```go
-RotationEndTime *string
-```
-
-- *Type:* *string
-
-Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}.
 
 ---
 
@@ -1079,6 +1067,18 @@ RestrictionType *f64
 - *Type:* *f64
 
 Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#restriction_type Schedules#restriction_type}.
+
+---
+
+##### `RotationEndTime`<sup>Optional</sup> <a name="RotationEndTime" id="@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime"></a>
+
+```go
+RotationEndTime *string
+```
+
+- *Type:* *string
+
+Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}.
 
 ---
 
@@ -1432,6 +1432,7 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.putRestrictions">PutRestrictions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRestrictions">ResetRestrictions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRestrictionType">ResetRestrictionType</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRotationEndTime">ResetRotationEndTime</a></code> | *No description.* |
 
 ---
 
@@ -1607,6 +1608,12 @@ func ResetRestrictions()
 
 ```go
 func ResetRestrictionType()
+```
+
+##### `ResetRotationEndTime` <a name="ResetRotationEndTime" id="@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRotationEndTime"></a>
+
+```go
+func ResetRotationEndTime()
 ```
 
 

@@ -322,7 +322,7 @@ export class Esp extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_esp',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

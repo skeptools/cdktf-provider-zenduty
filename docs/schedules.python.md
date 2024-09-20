@@ -1147,12 +1147,12 @@ from skeptools_cdktf_provider_zenduty import schedules
 
 schedules.SchedulesLayers(
   name: str,
-  rotation_end_time: str,
   rotation_start_time: str,
   shift_length: typing.Union[int, float],
   users: typing.List[str],
   restrictions: typing.Union[IResolvable, typing.List[SchedulesLayersRestrictions]] = None,
-  restriction_type: typing.Union[int, float] = None
+  restriction_type: typing.Union[int, float] = None,
+  rotation_end_time: str = None
 )
 ```
 
@@ -1161,12 +1161,12 @@ schedules.SchedulesLayers(
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.name">name</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#name Schedules#name}. |
-| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime">rotation_end_time</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationStartTime">rotation_start_time</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_start_time Schedules#rotation_start_time}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.shiftLength">shift_length</a></code> | <code>typing.Union[int, float]</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#shift_length Schedules#shift_length}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.users">users</a></code> | <code>typing.List[str]</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#users Schedules#users}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.restrictions">restrictions</a></code> | <code>typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictions">SchedulesLayersRestrictions</a>]]</code> | restrictions block. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.restrictionType">restriction_type</a></code> | <code>typing.Union[int, float]</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#restriction_type Schedules#restriction_type}. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime">rotation_end_time</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}. |
 
 ---
 
@@ -1179,18 +1179,6 @@ name: str
 - *Type:* str
 
 Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#name Schedules#name}.
-
----
-
-##### `rotation_end_time`<sup>Required</sup> <a name="rotation_end_time" id="@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime"></a>
-
-```python
-rotation_end_time: str
-```
-
-- *Type:* str
-
-Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}.
 
 ---
 
@@ -1253,6 +1241,18 @@ restriction_type: typing.Union[int, float]
 - *Type:* typing.Union[int, float]
 
 Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#restriction_type Schedules#restriction_type}.
+
+---
+
+##### `rotation_end_time`<sup>Optional</sup> <a name="rotation_end_time" id="@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime"></a>
+
+```python
+rotation_end_time: str
+```
+
+- *Type:* str
+
+Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}.
 
 ---
 
@@ -1619,6 +1619,7 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.putRestrictions">put_restrictions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRestrictions">reset_restrictions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRestrictionType">reset_restriction_type</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRotationEndTime">reset_rotation_end_time</a></code> | *No description.* |
 
 ---
 
@@ -1818,6 +1819,12 @@ def reset_restrictions() -> None
 
 ```python
 def reset_restriction_type() -> None
+```
+
+##### `reset_rotation_end_time` <a name="reset_rotation_end_time" id="@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRotationEndTime"></a>
+
+```python
+def reset_rotation_end_time() -> None
 ```
 
 

@@ -194,7 +194,7 @@ export class DataZendutyServices extends cdktf.TerraformDataSource {
       terraformResourceType: 'zenduty_services',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

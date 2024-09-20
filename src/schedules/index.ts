@@ -201,7 +201,7 @@ export interface SchedulesLayers {
   /**
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}
   */
-  readonly rotationEndTime: string;
+  readonly rotationEndTime?: string;
   /**
   * Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_start_time Schedules#rotation_start_time}
   */
@@ -347,13 +347,16 @@ export class SchedulesLayersOutputReference extends cdktf.ComplexObject {
     return this._restrictionType;
   }
 
-  // rotation_end_time - computed: false, optional: false, required: true
+  // rotation_end_time - computed: false, optional: true, required: false
   private _rotationEndTime?: string; 
   public get rotationEndTime() {
     return this.getStringAttribute('rotation_end_time');
   }
   public set rotationEndTime(value: string) {
     this._rotationEndTime = value;
+  }
+  public resetRotationEndTime() {
+    this._rotationEndTime = undefined;
   }
   // Temporarily expose input value. Use with caution.
   public get rotationEndTimeInput() {
@@ -628,7 +631,7 @@ export class Schedules extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_schedules',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

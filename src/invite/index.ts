@@ -218,7 +218,7 @@ export class Invite extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_invite',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

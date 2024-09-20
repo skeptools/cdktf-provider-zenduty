@@ -309,7 +309,7 @@ export class DataZendutyIncidents extends cdktf.TerraformDataSource {
       terraformResourceType: 'zenduty_incidents',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

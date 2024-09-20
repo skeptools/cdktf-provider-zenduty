@@ -1120,13 +1120,13 @@ import com.hashicorp.cdktf.providers.zenduty.schedules.SchedulesLayers;
 
 SchedulesLayers.builder()
     .name(java.lang.String)
-    .rotationEndTime(java.lang.String)
     .rotationStartTime(java.lang.String)
     .shiftLength(java.lang.Number)
     .users(java.util.List<java.lang.String>)
 //  .restrictions(IResolvable)
 //  .restrictions(java.util.List<SchedulesLayersRestrictions>)
 //  .restrictionType(java.lang.Number)
+//  .rotationEndTime(java.lang.String)
     .build();
 ```
 
@@ -1135,12 +1135,12 @@ SchedulesLayers.builder()
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.name">name</a></code> | <code>java.lang.String</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#name Schedules#name}. |
-| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime">rotationEndTime</a></code> | <code>java.lang.String</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationStartTime">rotationStartTime</a></code> | <code>java.lang.String</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_start_time Schedules#rotation_start_time}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.shiftLength">shiftLength</a></code> | <code>java.lang.Number</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#shift_length Schedules#shift_length}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.users">users</a></code> | <code>java.util.List<java.lang.String></code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#users Schedules#users}. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.restrictions">restrictions</a></code> | <code>com.hashicorp.cdktf.IResolvable OR java.util.List<<a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictions">SchedulesLayersRestrictions</a>></code> | restrictions block. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.restrictionType">restrictionType</a></code> | <code>java.lang.Number</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#restriction_type Schedules#restriction_type}. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime">rotationEndTime</a></code> | <code>java.lang.String</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}. |
 
 ---
 
@@ -1153,18 +1153,6 @@ public java.lang.String getName();
 - *Type:* java.lang.String
 
 Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#name Schedules#name}.
-
----
-
-##### `rotationEndTime`<sup>Required</sup> <a name="rotationEndTime" id="@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime"></a>
-
-```java
-public java.lang.String getRotationEndTime();
-```
-
-- *Type:* java.lang.String
-
-Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}.
 
 ---
 
@@ -1227,6 +1215,18 @@ public java.lang.Number getRestrictionType();
 - *Type:* java.lang.Number
 
 Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#restriction_type Schedules#restriction_type}.
+
+---
+
+##### `rotationEndTime`<sup>Optional</sup> <a name="rotationEndTime" id="@skeptools/provider-zenduty.schedules.SchedulesLayers.property.rotationEndTime"></a>
+
+```java
+public java.lang.String getRotationEndTime();
+```
+
+- *Type:* java.lang.String
+
+Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/schedules#rotation_end_time Schedules#rotation_end_time}.
 
 ---
 
@@ -1580,6 +1580,7 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.putRestrictions">putRestrictions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRestrictions">resetRestrictions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRestrictionType">resetRestrictionType</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRotationEndTime">resetRotationEndTime</a></code> | *No description.* |
 
 ---
 
@@ -1755,6 +1756,12 @@ public void resetRestrictions()
 
 ```java
 public void resetRestrictionType()
+```
+
+##### `resetRotationEndTime` <a name="resetRotationEndTime" id="@skeptools/provider-zenduty.schedules.SchedulesLayersOutputReference.resetRotationEndTime"></a>
+
+```java
+public void resetRotationEndTime()
 ```
 
 

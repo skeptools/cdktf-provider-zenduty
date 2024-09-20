@@ -74,7 +74,7 @@ export class MaintenanceWindow extends cdktf.TerraformResource {
       terraformResourceType: 'zenduty_maintenance_window',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

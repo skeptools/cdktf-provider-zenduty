@@ -15,7 +15,7 @@ teamPermissions.TeamPermissions(
   scope: Construct,
   id: str,
   connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection] = None,
-  count: typing.Union[int, float] = None,
+  count: typing.Union[typing.Union[int, float], TerraformCount] = None,
   depends_on: typing.List[ITerraformDependable] = None,
   for_each: ITerraformIterator = None,
   lifecycle: TerraformResourceLifecycle = None,
@@ -32,7 +32,7 @@ teamPermissions.TeamPermissions(
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The scope in which to define this construct. |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.id">id</a></code> | <code>str</code> | The scoped construct ID. |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.dependsOn">depends_on</a></code> | <code>typing.List[cdktf.ITerraformDependable]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -70,7 +70,7 @@ Must be unique amongst siblings in the same scope
 
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.Initializer.parameter.count"></a>
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -139,8 +139,10 @@ If you experience problems setting this value it might not be settable. Please t
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.addOverride">add_override</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.overrideLogicalId">override_logical_id</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.resetOverrideLogicalId">reset_override_logical_id</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.toHclTerraform">to_hcl_terraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.toMetadata">to_metadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.toTerraform">to_terraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.addMoveTarget">add_move_target</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getAnyMapAttribute">get_any_map_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getBooleanAttribute">get_boolean_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getBooleanMapAttribute">get_boolean_map_attribute</a></code> | *No description.* |
@@ -150,7 +152,12 @@ If you experience problems setting this value it might not be settable. Please t
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getNumberMapAttribute">get_number_map_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getStringAttribute">get_string_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getStringMapAttribute">get_string_map_attribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.hasResourceMove">has_resource_move</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.importFrom">import_from</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.interpolationForAttribute">interpolation_for_attribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveFromId">move_from_id</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveTo">move_to</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveToId">move_to_id</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.resetId">reset_id</a></code> | *No description.* |
 
 ---
@@ -210,6 +217,12 @@ def reset_override_logical_id() -> None
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `to_hcl_terraform` <a name="to_hcl_terraform" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.toHclTerraform"></a>
+
+```python
+def to_hcl_terraform() -> typing.Any
+```
+
 ##### `to_metadata` <a name="to_metadata" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.toMetadata"></a>
 
 ```python
@@ -223,6 +236,24 @@ def to_terraform() -> typing.Any
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `add_move_target` <a name="add_move_target" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.addMoveTarget"></a>
+
+```python
+def add_move_target(
+  move_target: str
+) -> None
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `move_target`<sup>Required</sup> <a name="move_target" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* str
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `get_any_map_attribute` <a name="get_any_map_attribute" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.getAnyMapAttribute"></a>
 
@@ -350,6 +381,33 @@ def get_string_map_attribute(
 
 ---
 
+##### `has_resource_move` <a name="has_resource_move" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.hasResourceMove"></a>
+
+```python
+def has_resource_move() -> typing.Union[TerraformResourceMoveByTarget, TerraformResourceMoveById]
+```
+
+##### `import_from` <a name="import_from" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.importFrom"></a>
+
+```python
+def import_from(
+  id: str,
+  provider: TerraformProvider = None
+) -> None
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.importFrom.parameter.id"></a>
+
+- *Type:* str
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.importFrom.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
 ##### `interpolation_for_attribute` <a name="interpolation_for_attribute" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.interpolationForAttribute"></a>
 
 ```python
@@ -361,6 +419,71 @@ def interpolation_for_attribute(
 ###### `terraform_attribute`<sup>Required</sup> <a name="terraform_attribute" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* str
+
+---
+
+##### `move_from_id` <a name="move_from_id" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveFromId"></a>
+
+```python
+def move_from_id(
+  id: str
+) -> None
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveFromId.parameter.id"></a>
+
+- *Type:* str
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `move_to` <a name="move_to" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveTo"></a>
+
+```python
+def move_to(
+  move_target: str,
+  index: typing.Union[str, typing.Union[int, float]] = None
+) -> None
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `move_target`<sup>Required</sup> <a name="move_target" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveTo.parameter.moveTarget"></a>
+
+- *Type:* str
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveTo.parameter.index"></a>
+
+- *Type:* typing.Union[str, typing.Union[int, float]]
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `move_to_id` <a name="move_to_id" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveToId"></a>
+
+```python
+def move_to_id(
+  id: str
+) -> None
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.moveToId.parameter.id"></a>
+
+- *Type:* str
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -458,7 +581,7 @@ teamPermissions.TeamPermissions.is_terraform_resource(
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.terraformResourceType">terraform_resource_type</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.terraformGeneratorMetadata">terraform_generator_metadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.dependsOn">depends_on</a></code> | <code>typing.List[str]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -558,10 +681,10 @@ connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection]
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissions.property.count"></a>
 
 ```python
-count: typing.Union[int, float]
+count: typing.Union[typing.Union[int, float], TerraformCount]
 ```
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -704,7 +827,7 @@ from skeptools_cdktf_provider_zenduty import team_permissions
 
 teamPermissions.TeamPermissionsConfig(
   connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection] = None,
-  count: typing.Union[int, float] = None,
+  count: typing.Union[typing.Union[int, float], TerraformCount] = None,
   depends_on: typing.List[ITerraformDependable] = None,
   for_each: ITerraformIterator = None,
   lifecycle: TerraformResourceLifecycle = None,
@@ -721,7 +844,7 @@ teamPermissions.TeamPermissionsConfig(
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.dependsOn">depends_on</a></code> | <code>typing.List[cdktf.ITerraformDependable]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -746,10 +869,10 @@ connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection]
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.teamPermissions.TeamPermissionsConfig.property.count"></a>
 
 ```python
-count: typing.Union[int, float]
+count: typing.Union[typing.Union[int, float], TerraformCount]
 ```
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 

@@ -54,8 +54,10 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.addOverride">AddOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.overrideLogicalId">OverrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.resetOverrideLogicalId">ResetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.toHclTerraform">ToHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.toMetadata">ToMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.toTerraform">ToTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.addMoveTarget">AddMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.getAnyMapAttribute">GetAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.getBooleanAttribute">GetBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.getBooleanMapAttribute">GetBooleanMapAttribute</a></code> | *No description.* |
@@ -65,7 +67,12 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.getNumberMapAttribute">GetNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.getStringAttribute">GetStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.getStringMapAttribute">GetStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.hasResourceMove">HasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.importFrom">ImportFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.interpolationForAttribute">InterpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.moveFromId">MoveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.moveTo">MoveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.moveToId">MoveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.putEscalations">PutEscalations</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.resetDescription">ResetDescription</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.resetId">ResetId</a></code> | *No description.* |
@@ -123,6 +130,12 @@ private void ResetOverrideLogicalId()
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `ToHclTerraform` <a name="ToHclTerraform" id="@skeptools/provider-zenduty.sla.Sla.toHclTerraform"></a>
+
+```csharp
+private object ToHclTerraform()
+```
+
 ##### `ToMetadata` <a name="ToMetadata" id="@skeptools/provider-zenduty.sla.Sla.toMetadata"></a>
 
 ```csharp
@@ -136,6 +149,22 @@ private object ToTerraform()
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `AddMoveTarget` <a name="AddMoveTarget" id="@skeptools/provider-zenduty.sla.Sla.addMoveTarget"></a>
+
+```csharp
+private void AddMoveTarget(string MoveTarget)
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `MoveTarget`<sup>Required</sup> <a name="MoveTarget" id="@skeptools/provider-zenduty.sla.Sla.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `GetAnyMapAttribute` <a name="GetAnyMapAttribute" id="@skeptools/provider-zenduty.sla.Sla.getAnyMapAttribute"></a>
 
@@ -245,6 +274,30 @@ private System.Collections.Generic.IDictionary<string, string> GetStringMapAttri
 
 ---
 
+##### `HasResourceMove` <a name="HasResourceMove" id="@skeptools/provider-zenduty.sla.Sla.hasResourceMove"></a>
+
+```csharp
+private object HasResourceMove()
+```
+
+##### `ImportFrom` <a name="ImportFrom" id="@skeptools/provider-zenduty.sla.Sla.importFrom"></a>
+
+```csharp
+private void ImportFrom(string Id, TerraformProvider Provider = null)
+```
+
+###### `Id`<sup>Required</sup> <a name="Id" id="@skeptools/provider-zenduty.sla.Sla.importFrom.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `Provider`<sup>Optional</sup> <a name="Provider" id="@skeptools/provider-zenduty.sla.Sla.importFrom.parameter.provider"></a>
+
+- *Type:* HashiCorp.Cdktf.TerraformProvider
+
+---
+
 ##### `InterpolationForAttribute` <a name="InterpolationForAttribute" id="@skeptools/provider-zenduty.sla.Sla.interpolationForAttribute"></a>
 
 ```csharp
@@ -254,6 +307,64 @@ private IResolvable InterpolationForAttribute(string TerraformAttribute)
 ###### `TerraformAttribute`<sup>Required</sup> <a name="TerraformAttribute" id="@skeptools/provider-zenduty.sla.Sla.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* string
+
+---
+
+##### `MoveFromId` <a name="MoveFromId" id="@skeptools/provider-zenduty.sla.Sla.moveFromId"></a>
+
+```csharp
+private void MoveFromId(string Id)
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `Id`<sup>Required</sup> <a name="Id" id="@skeptools/provider-zenduty.sla.Sla.moveFromId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `MoveTo` <a name="MoveTo" id="@skeptools/provider-zenduty.sla.Sla.moveTo"></a>
+
+```csharp
+private void MoveTo(string MoveTarget, object Index = null)
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `MoveTarget`<sup>Required</sup> <a name="MoveTarget" id="@skeptools/provider-zenduty.sla.Sla.moveTo.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `Index`<sup>Optional</sup> <a name="Index" id="@skeptools/provider-zenduty.sla.Sla.moveTo.parameter.index"></a>
+
+- *Type:* object
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `MoveToId` <a name="MoveToId" id="@skeptools/provider-zenduty.sla.Sla.moveToId"></a>
+
+```csharp
+private void MoveToId(string Id)
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `Id`<sup>Required</sup> <a name="Id" id="@skeptools/provider-zenduty.sla.Sla.moveToId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -369,7 +480,7 @@ Sla.IsTerraformResource(object X);
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.terraformResourceType">TerraformResourceType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.terraformGeneratorMetadata">TerraformGeneratorMetadata</a></code> | <code>HashiCorp.Cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.connection">Connection</a></code> | <code>object</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.count">Count</a></code> | <code>double</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.count">Count</a></code> | <code>object</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.dependsOn">DependsOn</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.forEach">ForEach</a></code> | <code>HashiCorp.Cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.Sla.property.lifecycle">Lifecycle</a></code> | <code>HashiCorp.Cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -479,10 +590,10 @@ public object Connection { get; }
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.sla.Sla.property.count"></a>
 
 ```csharp
-public double Count { get; }
+public object Count { get; }
 ```
 
-- *Type:* double
+- *Type:* object
 
 ---
 
@@ -725,7 +836,7 @@ using HashiCorp.Cdktf.Providers.Zenduty;
 
 new SlaConfig {
     object Connection = null,
-    double Count = null,
+    object Count = null,
     ITerraformDependable[] DependsOn = null,
     ITerraformIterator ForEach = null,
     TerraformResourceLifecycle Lifecycle = null,
@@ -747,7 +858,7 @@ new SlaConfig {
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaConfig.property.connection">Connection</a></code> | <code>object</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.sla.SlaConfig.property.count">Count</a></code> | <code>double</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.sla.SlaConfig.property.count">Count</a></code> | <code>object</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaConfig.property.dependsOn">DependsOn</a></code> | <code>HashiCorp.Cdktf.ITerraformDependable[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaConfig.property.forEach">ForEach</a></code> | <code>HashiCorp.Cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaConfig.property.lifecycle">Lifecycle</a></code> | <code>HashiCorp.Cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -777,10 +888,10 @@ public object Connection { get; set; }
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.sla.SlaConfig.property.count"></a>
 
 ```csharp
-public double Count { get; set; }
+public object Count { get; set; }
 ```
 
-- *Type:* double
+- *Type:* object
 
 ---
 
@@ -1077,10 +1188,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsList.allWithMapKey">AllWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsList.computeFqn">ComputeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsList.resolve">Resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsList.toString">ToString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsList.get">Get</a></code> | *No description.* |
+
+---
+
+##### `AllWithMapKey` <a name="AllWithMapKey" id="@skeptools/provider-zenduty.sla.SlaEscalationsList.allWithMapKey"></a>
+
+```csharp
+private DynamicListTerraformIterator AllWithMapKey(string MapKeyAttributeName)
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `MapKeyAttributeName`<sup>Required</sup> <a name="MapKeyAttributeName" id="@skeptools/provider-zenduty.sla.SlaEscalationsList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* string
 
 ---
 
@@ -1584,10 +1712,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.allWithMapKey">AllWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.computeFqn">ComputeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.resolve">Resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.toString">ToString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.get">Get</a></code> | *No description.* |
+
+---
+
+##### `AllWithMapKey` <a name="AllWithMapKey" id="@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.allWithMapKey"></a>
+
+```csharp
+private DynamicListTerraformIterator AllWithMapKey(string MapKeyAttributeName)
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `MapKeyAttributeName`<sup>Required</sup> <a name="MapKeyAttributeName" id="@skeptools/provider-zenduty.sla.SlaEscalationsRespondersList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* string
 
 ---
 

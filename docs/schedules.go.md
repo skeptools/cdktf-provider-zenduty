@@ -54,8 +54,10 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.addOverride">AddOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.overrideLogicalId">OverrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.resetOverrideLogicalId">ResetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.toHclTerraform">ToHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.toMetadata">ToMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.toTerraform">ToTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.addMoveTarget">AddMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.getAnyMapAttribute">GetAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.getBooleanAttribute">GetBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.getBooleanMapAttribute">GetBooleanMapAttribute</a></code> | *No description.* |
@@ -65,7 +67,12 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.getNumberMapAttribute">GetNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.getStringAttribute">GetStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.getStringMapAttribute">GetStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.hasResourceMove">HasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.importFrom">ImportFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.interpolationForAttribute">InterpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.moveFromId">MoveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.moveTo">MoveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.moveToId">MoveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.putLayers">PutLayers</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.putOverrides">PutOverrides</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.resetDescription">ResetDescription</a></code> | *No description.* |
@@ -126,6 +133,12 @@ func ResetOverrideLogicalId()
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `ToHclTerraform` <a name="ToHclTerraform" id="@skeptools/provider-zenduty.schedules.Schedules.toHclTerraform"></a>
+
+```go
+func ToHclTerraform() interface{}
+```
+
 ##### `ToMetadata` <a name="ToMetadata" id="@skeptools/provider-zenduty.schedules.Schedules.toMetadata"></a>
 
 ```go
@@ -139,6 +152,22 @@ func ToTerraform() interface{}
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `AddMoveTarget` <a name="AddMoveTarget" id="@skeptools/provider-zenduty.schedules.Schedules.addMoveTarget"></a>
+
+```go
+func AddMoveTarget(moveTarget *string)
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.schedules.Schedules.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* *string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `GetAnyMapAttribute` <a name="GetAnyMapAttribute" id="@skeptools/provider-zenduty.schedules.Schedules.getAnyMapAttribute"></a>
 
@@ -248,6 +277,30 @@ func GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 
 ---
 
+##### `HasResourceMove` <a name="HasResourceMove" id="@skeptools/provider-zenduty.schedules.Schedules.hasResourceMove"></a>
+
+```go
+func HasResourceMove() interface{}
+```
+
+##### `ImportFrom` <a name="ImportFrom" id="@skeptools/provider-zenduty.schedules.Schedules.importFrom"></a>
+
+```go
+func ImportFrom(id *string, provider TerraformProvider)
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.schedules.Schedules.importFrom.parameter.id"></a>
+
+- *Type:* *string
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.schedules.Schedules.importFrom.parameter.provider"></a>
+
+- *Type:* github.com/hashicorp/terraform-cdk-go/cdktf.TerraformProvider
+
+---
+
 ##### `InterpolationForAttribute` <a name="InterpolationForAttribute" id="@skeptools/provider-zenduty.schedules.Schedules.interpolationForAttribute"></a>
 
 ```go
@@ -257,6 +310,64 @@ func InterpolationForAttribute(terraformAttribute *string) IResolvable
 ###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="@skeptools/provider-zenduty.schedules.Schedules.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* *string
+
+---
+
+##### `MoveFromId` <a name="MoveFromId" id="@skeptools/provider-zenduty.schedules.Schedules.moveFromId"></a>
+
+```go
+func MoveFromId(id *string)
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.schedules.Schedules.moveFromId.parameter.id"></a>
+
+- *Type:* *string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `MoveTo` <a name="MoveTo" id="@skeptools/provider-zenduty.schedules.Schedules.moveTo"></a>
+
+```go
+func MoveTo(moveTarget *string, index interface{})
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.schedules.Schedules.moveTo.parameter.moveTarget"></a>
+
+- *Type:* *string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.schedules.Schedules.moveTo.parameter.index"></a>
+
+- *Type:* interface{}
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `MoveToId` <a name="MoveToId" id="@skeptools/provider-zenduty.schedules.Schedules.moveToId"></a>
+
+```go
+func MoveToId(id *string)
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.schedules.Schedules.moveToId.parameter.id"></a>
+
+- *Type:* *string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -396,7 +507,7 @@ schedules.Schedules_IsTerraformResource(x interface{}) *bool
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.terraformResourceType">TerraformResourceType</a></code> | <code>*string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.terraformGeneratorMetadata">TerraformGeneratorMetadata</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.connection">Connection</a></code> | <code>interface{}</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.count">Count</a></code> | <code>*f64</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.count">Count</a></code> | <code>interface{}</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.dependsOn">DependsOn</a></code> | <code>*[]*string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.forEach">ForEach</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.Schedules.property.lifecycle">Lifecycle</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -506,10 +617,10 @@ func Connection() interface{}
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.schedules.Schedules.property.count"></a>
 
 ```go
-func Count() *f64
+func Count() interface{}
 ```
 
-- *Type:* *f64
+- *Type:* interface{}
 
 ---
 
@@ -752,7 +863,7 @@ import "github.com/skeptools/cdktf-provider-zenduty-go/zenduty/schedules"
 
 &schedules.SchedulesConfig {
 	Connection: interface{},
-	Count: *f64,
+	Count: interface{},
 	DependsOn: *[]github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformDependable,
 	ForEach: github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformIterator,
 	Lifecycle: github.com/hashicorp/terraform-cdk-go/cdktf.TerraformResourceLifecycle,
@@ -774,7 +885,7 @@ import "github.com/skeptools/cdktf-provider-zenduty-go/zenduty/schedules"
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesConfig.property.connection">Connection</a></code> | <code>interface{}</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesConfig.property.count">Count</a></code> | <code>*f64</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesConfig.property.count">Count</a></code> | <code>interface{}</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesConfig.property.dependsOn">DependsOn</a></code> | <code>*[]github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformDependable</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesConfig.property.forEach">ForEach</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesConfig.property.lifecycle">Lifecycle</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -804,10 +915,10 @@ Connection interface{}
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.schedules.SchedulesConfig.property.count"></a>
 
 ```go
-Count *f64
+Count interface{}
 ```
 
-- *Type:* *f64
+- *Type:* interface{}
 
 ---
 
@@ -1264,10 +1375,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersList.allWithMapKey">AllWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersList.computeFqn">ComputeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersList.resolve">Resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersList.toString">ToString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersList.get">Get</a></code> | *No description.* |
+
+---
+
+##### `AllWithMapKey` <a name="AllWithMapKey" id="@skeptools/provider-zenduty.schedules.SchedulesLayersList.allWithMapKey"></a>
+
+```go
+func AllWithMapKey(mapKeyAttributeName *string) DynamicListTerraformIterator
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `mapKeyAttributeName`<sup>Required</sup> <a name="mapKeyAttributeName" id="@skeptools/provider-zenduty.schedules.SchedulesLayersList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* *string
 
 ---
 
@@ -1862,10 +1990,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.allWithMapKey">AllWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.computeFqn">ComputeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.resolve">Resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.toString">ToString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.get">Get</a></code> | *No description.* |
+
+---
+
+##### `AllWithMapKey` <a name="AllWithMapKey" id="@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.allWithMapKey"></a>
+
+```go
+func AllWithMapKey(mapKeyAttributeName *string) DynamicListTerraformIterator
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `mapKeyAttributeName`<sup>Required</sup> <a name="mapKeyAttributeName" id="@skeptools/provider-zenduty.schedules.SchedulesLayersRestrictionsList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* *string
 
 ---
 
@@ -2338,10 +2483,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesOverridesList.allWithMapKey">AllWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesOverridesList.computeFqn">ComputeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesOverridesList.resolve">Resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesOverridesList.toString">ToString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.schedules.SchedulesOverridesList.get">Get</a></code> | *No description.* |
+
+---
+
+##### `AllWithMapKey` <a name="AllWithMapKey" id="@skeptools/provider-zenduty.schedules.SchedulesOverridesList.allWithMapKey"></a>
+
+```go
+func AllWithMapKey(mapKeyAttributeName *string) DynamicListTerraformIterator
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `mapKeyAttributeName`<sup>Required</sup> <a name="mapKeyAttributeName" id="@skeptools/provider-zenduty.schedules.SchedulesOverridesList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* *string
 
 ---
 

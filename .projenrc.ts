@@ -9,8 +9,11 @@ import { NpmAccess } from "projen/lib/javascript";
 const project = new CdktfProviderProject({
   author: "Ryan Martin",
   authorAddress: "rlmartin@gmail.com",
-  cdktfVersion: "^0.14.0",
-  constructsVersion: "^10.0.0",
+  cdktfVersion: "^0.20.0",
+  constructsVersion: "^10.3.0",
+  minNodeVersion: "18.12.0",
+  jsiiVersion: "~5.4.0",
+  typescriptVersion: "~5.4.0",
   defaultReleaseBranch: "main",
   devDeps: ["@cdktf/provider-project@0.5.14"],
   name: "@skeptools/cdktf-provider-zenduty",
@@ -20,7 +23,6 @@ const project = new CdktfProviderProject({
   terraformProvider: "Zenduty/zenduty@~> 0",
   releaseToNpm: true,
   npmAccess: NpmAccess.PUBLIC,
-  minNodeVersion: '18.12.0',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */

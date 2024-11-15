@@ -54,6 +54,7 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.addOverride">AddOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.overrideLogicalId">OverrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.resetOverrideLogicalId">ResetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.toHclTerraform">ToHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.toMetadata">ToMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.toTerraform">ToTerraform</a></code> | Adds this resource to the terraform JSON output. |
 | <code><a href="#@skeptools/provider-zenduty.provider.ZendutyProvider.resetAlias">ResetAlias</a></code> | *No description.* |
@@ -110,6 +111,12 @@ private void ResetOverrideLogicalId()
 ```
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
+
+##### `ToHclTerraform` <a name="ToHclTerraform" id="@skeptools/provider-zenduty.provider.ZendutyProvider.toHclTerraform"></a>
+
+```csharp
+private object ToHclTerraform()
+```
 
 ##### `ToMetadata` <a name="ToMetadata" id="@skeptools/provider-zenduty.provider.ZendutyProvider.toMetadata"></a>
 

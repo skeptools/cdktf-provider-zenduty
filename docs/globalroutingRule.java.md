@@ -15,6 +15,7 @@ GlobalroutingRule.Builder.create(Construct scope, java.lang.String id)
 //  .connection(SSHProvisionerConnection)
 //  .connection(WinrmProvisionerConnection)
 //  .count(java.lang.Number)
+//  .count(TerraformCount)
 //  .dependsOn(java.util.List<ITerraformDependable>)
 //  .forEach(ITerraformIterator)
 //  .lifecycle(TerraformResourceLifecycle)
@@ -36,7 +37,7 @@ GlobalroutingRule.Builder.create(Construct scope, java.lang.String id)
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.scope">scope</a></code> | <code>software.constructs.Construct</code> | The scope in which to define this construct. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.id">id</a></code> | <code>java.lang.String</code> | The scoped construct ID. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.connection">connection</a></code> | <code>com.hashicorp.cdktf.SSHProvisionerConnection OR com.hashicorp.cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.count">count</a></code> | <code>java.lang.Number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.count">count</a></code> | <code>java.lang.Number OR com.hashicorp.cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.dependsOn">dependsOn</a></code> | <code>java.util.List<com.hashicorp.cdktf.ITerraformDependable></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.forEach">forEach</a></code> | <code>com.hashicorp.cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.lifecycle">lifecycle</a></code> | <code>com.hashicorp.cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -76,7 +77,7 @@ Must be unique amongst siblings in the same scope
 
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.Initializer.parameter.count"></a>
 
-- *Type:* java.lang.Number
+- *Type:* java.lang.Number OR com.hashicorp.cdktf.TerraformCount
 
 ---
 
@@ -163,8 +164,10 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.toHclTerraform">toHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.toMetadata">toMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.addMoveTarget">addMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getAnyMapAttribute">getAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getBooleanAttribute">getBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getBooleanMapAttribute">getBooleanMapAttribute</a></code> | *No description.* |
@@ -174,7 +177,12 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getNumberMapAttribute">getNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getStringAttribute">getStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getStringMapAttribute">getStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.hasResourceMove">hasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.importFrom">importFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.interpolationForAttribute">interpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveFromId">moveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveTo">moveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveToId">moveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.putActions">putActions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.resetActions">resetActions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.resetId">resetId</a></code> | *No description.* |
@@ -232,6 +240,12 @@ public void resetOverrideLogicalId()
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `toHclTerraform` <a name="toHclTerraform" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.toHclTerraform"></a>
+
+```java
+public java.lang.Object toHclTerraform()
+```
+
 ##### `toMetadata` <a name="toMetadata" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.toMetadata"></a>
 
 ```java
@@ -245,6 +259,22 @@ public java.lang.Object toTerraform()
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `addMoveTarget` <a name="addMoveTarget" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.addMoveTarget"></a>
+
+```java
+public void addMoveTarget(java.lang.String moveTarget)
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* java.lang.String
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `getAnyMapAttribute` <a name="getAnyMapAttribute" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.getAnyMapAttribute"></a>
 
@@ -354,6 +384,31 @@ public java.util.Map<java.lang.String, java.lang.String> getStringMapAttribute(j
 
 ---
 
+##### `hasResourceMove` <a name="hasResourceMove" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.hasResourceMove"></a>
+
+```java
+public TerraformResourceMoveByTarget OR TerraformResourceMoveById hasResourceMove()
+```
+
+##### `importFrom` <a name="importFrom" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.importFrom"></a>
+
+```java
+public void importFrom(java.lang.String id)
+public void importFrom(java.lang.String id, TerraformProvider provider)
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.importFrom.parameter.id"></a>
+
+- *Type:* java.lang.String
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.importFrom.parameter.provider"></a>
+
+- *Type:* com.hashicorp.cdktf.TerraformProvider
+
+---
+
 ##### `interpolationForAttribute` <a name="interpolationForAttribute" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.interpolationForAttribute"></a>
 
 ```java
@@ -363,6 +418,65 @@ public IResolvable interpolationForAttribute(java.lang.String terraformAttribute
 ###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* java.lang.String
+
+---
+
+##### `moveFromId` <a name="moveFromId" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveFromId"></a>
+
+```java
+public void moveFromId(java.lang.String id)
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveFromId.parameter.id"></a>
+
+- *Type:* java.lang.String
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `moveTo` <a name="moveTo" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveTo"></a>
+
+```java
+public void moveTo(java.lang.String moveTarget)
+public void moveTo(java.lang.String moveTarget, java.lang.String OR java.lang.Number index)
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveTo.parameter.moveTarget"></a>
+
+- *Type:* java.lang.String
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveTo.parameter.index"></a>
+
+- *Type:* java.lang.String OR java.lang.Number
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `moveToId` <a name="moveToId" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveToId"></a>
+
+```java
+public void moveToId(java.lang.String id)
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.moveToId.parameter.id"></a>
+
+- *Type:* java.lang.String
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -478,7 +592,7 @@ GlobalroutingRule.isTerraformResource(java.lang.Object x)
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.terraformResourceType">terraformResourceType</a></code> | <code>java.lang.String</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>com.hashicorp.cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.connection">connection</a></code> | <code>com.hashicorp.cdktf.SSHProvisionerConnection OR com.hashicorp.cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.count">count</a></code> | <code>java.lang.Number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.count">count</a></code> | <code>java.lang.Number OR com.hashicorp.cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.dependsOn">dependsOn</a></code> | <code>java.util.List<java.lang.String></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.forEach">forEach</a></code> | <code>com.hashicorp.cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.lifecycle">lifecycle</a></code> | <code>com.hashicorp.cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -582,10 +696,10 @@ public java.lang.Object getConnection();
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRule.property.count"></a>
 
 ```java
-public java.lang.Number getCount();
+public java.lang.Object getCount();
 ```
 
-- *Type:* java.lang.Number
+- *Type:* java.lang.Number OR com.hashicorp.cdktf.TerraformCount
 
 ---
 
@@ -816,6 +930,7 @@ GlobalroutingRuleConfig.builder()
 //  .connection(SSHProvisionerConnection)
 //  .connection(WinrmProvisionerConnection)
 //  .count(java.lang.Number)
+//  .count(TerraformCount)
 //  .dependsOn(java.util.List<ITerraformDependable>)
 //  .forEach(ITerraformIterator)
 //  .lifecycle(TerraformResourceLifecycle)
@@ -837,7 +952,7 @@ GlobalroutingRuleConfig.builder()
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.connection">connection</a></code> | <code>com.hashicorp.cdktf.SSHProvisionerConnection OR com.hashicorp.cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.count">count</a></code> | <code>java.lang.Number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.count">count</a></code> | <code>java.lang.Number OR com.hashicorp.cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.dependsOn">dependsOn</a></code> | <code>java.util.List<com.hashicorp.cdktf.ITerraformDependable></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.forEach">forEach</a></code> | <code>com.hashicorp.cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.lifecycle">lifecycle</a></code> | <code>com.hashicorp.cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -864,10 +979,10 @@ public java.lang.Object getConnection();
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleConfig.property.count"></a>
 
 ```java
-public java.lang.Number getCount();
+public java.lang.Object getCount();
 ```
 
-- *Type:* java.lang.Number
+- *Type:* java.lang.Number OR com.hashicorp.cdktf.TerraformCount
 
 ---
 
@@ -1034,10 +1149,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.allWithMapKey">allWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.computeFqn">computeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.resolve">resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.toString">toString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.get">get</a></code> | *No description.* |
+
+---
+
+##### `allWithMapKey` <a name="allWithMapKey" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.allWithMapKey"></a>
+
+```java
+public DynamicListTerraformIterator allWithMapKey(java.lang.String mapKeyAttributeName)
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `mapKeyAttributeName`<sup>Required</sup> <a name="mapKeyAttributeName" id="@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* java.lang.String
 
 ---
 
@@ -1370,7 +1502,7 @@ public void resetIntegration()
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsOutputReference.property.integrationInput">integrationInput</a></code> | <code>java.lang.String</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsOutputReference.property.actionType">actionType</a></code> | <code>java.lang.Number</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsOutputReference.property.integration">integration</a></code> | <code>java.lang.String</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsOutputReference.property.internalValue">internalValue</a></code> | <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActions">GlobalroutingRuleActions</a> OR com.hashicorp.cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActionsOutputReference.property.internalValue">internalValue</a></code> | <code>com.hashicorp.cdktf.IResolvable OR <a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActions">GlobalroutingRuleActions</a></code> | *No description.* |
 
 ---
 
@@ -1444,7 +1576,7 @@ public java.lang.String getIntegration();
 public java.lang.Object getInternalValue();
 ```
 
-- *Type:* <a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActions">GlobalroutingRuleActions</a> OR com.hashicorp.cdktf.IResolvable
+- *Type:* com.hashicorp.cdktf.IResolvable OR <a href="#@skeptools/provider-zenduty.globalroutingRule.GlobalroutingRuleActions">GlobalroutingRuleActions</a>
 
 ---
 

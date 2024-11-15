@@ -54,8 +54,10 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.addOverride">AddOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.overrideLogicalId">OverrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.resetOverrideLogicalId">ResetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.toHclTerraform">ToHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.toMetadata">ToMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.toTerraform">ToTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.addMoveTarget">AddMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.getAnyMapAttribute">GetAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.getBooleanAttribute">GetBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.getBooleanMapAttribute">GetBooleanMapAttribute</a></code> | *No description.* |
@@ -65,7 +67,12 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.getNumberMapAttribute">GetNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.getStringAttribute">GetStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.getStringMapAttribute">GetStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.hasResourceMove">HasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.importFrom">ImportFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.interpolationForAttribute">InterpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.moveFromId">MoveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.moveTo">MoveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.moveToId">MoveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.resetId">ResetId</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.resetIsEnabled">ResetIsEnabled</a></code> | *No description.* |
 
@@ -121,6 +128,12 @@ private void ResetOverrideLogicalId()
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `ToHclTerraform` <a name="ToHclTerraform" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.toHclTerraform"></a>
+
+```csharp
+private object ToHclTerraform()
+```
+
 ##### `ToMetadata` <a name="ToMetadata" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.toMetadata"></a>
 
 ```csharp
@@ -134,6 +147,22 @@ private object ToTerraform()
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `AddMoveTarget` <a name="AddMoveTarget" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.addMoveTarget"></a>
+
+```csharp
+private void AddMoveTarget(string MoveTarget)
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `MoveTarget`<sup>Required</sup> <a name="MoveTarget" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `GetAnyMapAttribute` <a name="GetAnyMapAttribute" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.getAnyMapAttribute"></a>
 
@@ -243,6 +272,30 @@ private System.Collections.Generic.IDictionary<string, string> GetStringMapAttri
 
 ---
 
+##### `HasResourceMove` <a name="HasResourceMove" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.hasResourceMove"></a>
+
+```csharp
+private object HasResourceMove()
+```
+
+##### `ImportFrom` <a name="ImportFrom" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.importFrom"></a>
+
+```csharp
+private void ImportFrom(string Id, TerraformProvider Provider = null)
+```
+
+###### `Id`<sup>Required</sup> <a name="Id" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.importFrom.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `Provider`<sup>Optional</sup> <a name="Provider" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.importFrom.parameter.provider"></a>
+
+- *Type:* HashiCorp.Cdktf.TerraformProvider
+
+---
+
 ##### `InterpolationForAttribute` <a name="InterpolationForAttribute" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.interpolationForAttribute"></a>
 
 ```csharp
@@ -252,6 +305,64 @@ private IResolvable InterpolationForAttribute(string TerraformAttribute)
 ###### `TerraformAttribute`<sup>Required</sup> <a name="TerraformAttribute" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* string
+
+---
+
+##### `MoveFromId` <a name="MoveFromId" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveFromId"></a>
+
+```csharp
+private void MoveFromId(string Id)
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `Id`<sup>Required</sup> <a name="Id" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveFromId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `MoveTo` <a name="MoveTo" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveTo"></a>
+
+```csharp
+private void MoveTo(string MoveTarget, object Index = null)
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `MoveTarget`<sup>Required</sup> <a name="MoveTarget" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveTo.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `Index`<sup>Optional</sup> <a name="Index" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveTo.parameter.index"></a>
+
+- *Type:* object
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `MoveToId` <a name="MoveToId" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveToId"></a>
+
+```csharp
+private void MoveToId(string Id)
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `Id`<sup>Required</sup> <a name="Id" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.moveToId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -349,7 +460,7 @@ Globalrouter.IsTerraformResource(object X);
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.terraformResourceType">TerraformResourceType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.terraformGeneratorMetadata">TerraformGeneratorMetadata</a></code> | <code>HashiCorp.Cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.connection">Connection</a></code> | <code>object</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.count">Count</a></code> | <code>double</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.count">Count</a></code> | <code>object</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.dependsOn">DependsOn</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.forEach">ForEach</a></code> | <code>HashiCorp.Cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.Globalrouter.property.lifecycle">Lifecycle</a></code> | <code>HashiCorp.Cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -452,10 +563,10 @@ public object Connection { get; }
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.globalrouter.Globalrouter.property.count"></a>
 
 ```csharp
-public double Count { get; }
+public object Count { get; }
 ```
 
-- *Type:* double
+- *Type:* object
 
 ---
 
@@ -628,7 +739,7 @@ using HashiCorp.Cdktf.Providers.Zenduty;
 
 new GlobalrouterConfig {
     object Connection = null,
-    double Count = null,
+    object Count = null,
     ITerraformDependable[] DependsOn = null,
     ITerraformIterator ForEach = null,
     TerraformResourceLifecycle Lifecycle = null,
@@ -646,7 +757,7 @@ new GlobalrouterConfig {
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.connection">Connection</a></code> | <code>object</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.count">Count</a></code> | <code>double</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.count">Count</a></code> | <code>object</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.dependsOn">DependsOn</a></code> | <code>HashiCorp.Cdktf.ITerraformDependable[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.forEach">ForEach</a></code> | <code>HashiCorp.Cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.lifecycle">Lifecycle</a></code> | <code>HashiCorp.Cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -672,10 +783,10 @@ public object Connection { get; set; }
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.globalrouter.GlobalrouterConfig.property.count"></a>
 
 ```csharp
-public double Count { get; set; }
+public object Count { get; set; }
 ```
 
-- *Type:* double
+- *Type:* object
 
 ---
 

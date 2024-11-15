@@ -54,8 +54,10 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.addOverride">AddOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.overrideLogicalId">OverrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.resetOverrideLogicalId">ResetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.toHclTerraform">ToHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.toMetadata">ToMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.toTerraform">ToTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.addMoveTarget">AddMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.getAnyMapAttribute">GetAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.getBooleanAttribute">GetBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.getBooleanMapAttribute">GetBooleanMapAttribute</a></code> | *No description.* |
@@ -65,7 +67,12 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.getNumberMapAttribute">GetNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.getStringAttribute">GetStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.getStringMapAttribute">GetStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.hasResourceMove">HasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.importFrom">ImportFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.interpolationForAttribute">InterpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.moveFromId">MoveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.moveTo">MoveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.moveToId">MoveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.resetId">ResetId</a></code> | *No description.* |
 
 ---
@@ -120,6 +127,12 @@ func ResetOverrideLogicalId()
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `ToHclTerraform` <a name="ToHclTerraform" id="@skeptools/provider-zenduty.accountRole.AccountRole.toHclTerraform"></a>
+
+```go
+func ToHclTerraform() interface{}
+```
+
 ##### `ToMetadata` <a name="ToMetadata" id="@skeptools/provider-zenduty.accountRole.AccountRole.toMetadata"></a>
 
 ```go
@@ -133,6 +146,22 @@ func ToTerraform() interface{}
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `AddMoveTarget` <a name="AddMoveTarget" id="@skeptools/provider-zenduty.accountRole.AccountRole.addMoveTarget"></a>
+
+```go
+func AddMoveTarget(moveTarget *string)
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.accountRole.AccountRole.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* *string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `GetAnyMapAttribute` <a name="GetAnyMapAttribute" id="@skeptools/provider-zenduty.accountRole.AccountRole.getAnyMapAttribute"></a>
 
@@ -242,6 +271,30 @@ func GetStringMapAttribute(terraformAttribute *string) *map[string]*string
 
 ---
 
+##### `HasResourceMove` <a name="HasResourceMove" id="@skeptools/provider-zenduty.accountRole.AccountRole.hasResourceMove"></a>
+
+```go
+func HasResourceMove() interface{}
+```
+
+##### `ImportFrom` <a name="ImportFrom" id="@skeptools/provider-zenduty.accountRole.AccountRole.importFrom"></a>
+
+```go
+func ImportFrom(id *string, provider TerraformProvider)
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.accountRole.AccountRole.importFrom.parameter.id"></a>
+
+- *Type:* *string
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.accountRole.AccountRole.importFrom.parameter.provider"></a>
+
+- *Type:* github.com/hashicorp/terraform-cdk-go/cdktf.TerraformProvider
+
+---
+
 ##### `InterpolationForAttribute` <a name="InterpolationForAttribute" id="@skeptools/provider-zenduty.accountRole.AccountRole.interpolationForAttribute"></a>
 
 ```go
@@ -251,6 +304,64 @@ func InterpolationForAttribute(terraformAttribute *string) IResolvable
 ###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="@skeptools/provider-zenduty.accountRole.AccountRole.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* *string
+
+---
+
+##### `MoveFromId` <a name="MoveFromId" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveFromId"></a>
+
+```go
+func MoveFromId(id *string)
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveFromId.parameter.id"></a>
+
+- *Type:* *string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `MoveTo` <a name="MoveTo" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveTo"></a>
+
+```go
+func MoveTo(moveTarget *string, index interface{})
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveTo.parameter.moveTarget"></a>
+
+- *Type:* *string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveTo.parameter.index"></a>
+
+- *Type:* interface{}
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `MoveToId` <a name="MoveToId" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveToId"></a>
+
+```go
+func MoveToId(id *string)
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.accountRole.AccountRole.moveToId.parameter.id"></a>
+
+- *Type:* *string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -342,7 +453,7 @@ accountrole.AccountRole_IsTerraformResource(x interface{}) *bool
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.terraformResourceType">TerraformResourceType</a></code> | <code>*string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.terraformGeneratorMetadata">TerraformGeneratorMetadata</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.connection">Connection</a></code> | <code>interface{}</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.count">Count</a></code> | <code>*f64</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.count">Count</a></code> | <code>interface{}</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.dependsOn">DependsOn</a></code> | <code>*[]*string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.forEach">ForEach</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRole.property.lifecycle">Lifecycle</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -444,10 +555,10 @@ func Connection() interface{}
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.accountRole.AccountRole.property.count"></a>
 
 ```go
-func Count() *f64
+func Count() interface{}
 ```
 
-- *Type:* *f64
+- *Type:* interface{}
 
 ---
 
@@ -610,7 +721,7 @@ import "github.com/skeptools/cdktf-provider-zenduty-go/zenduty/accountrole"
 
 &accountrole.AccountRoleConfig {
 	Connection: interface{},
-	Count: *f64,
+	Count: interface{},
 	DependsOn: *[]github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformDependable,
 	ForEach: github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformIterator,
 	Lifecycle: github.com/hashicorp/terraform-cdk-go/cdktf.TerraformResourceLifecycle,
@@ -628,7 +739,7 @@ import "github.com/skeptools/cdktf-provider-zenduty-go/zenduty/accountrole"
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.connection">Connection</a></code> | <code>interface{}</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.count">Count</a></code> | <code>*f64</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.count">Count</a></code> | <code>interface{}</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.dependsOn">DependsOn</a></code> | <code>*[]github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformDependable</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.forEach">ForEach</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.lifecycle">Lifecycle</a></code> | <code>github.com/hashicorp/terraform-cdk-go/cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -654,10 +765,10 @@ Connection interface{}
 ##### `Count`<sup>Optional</sup> <a name="Count" id="@skeptools/provider-zenduty.accountRole.AccountRoleConfig.property.count"></a>
 
 ```go
-Count *f64
+Count interface{}
 ```
 
-- *Type:* *f64
+- *Type:* interface{}
 
 ---
 

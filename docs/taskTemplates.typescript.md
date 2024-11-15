@@ -54,8 +54,10 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.toHclTerraform">toHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.toMetadata">toMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.addMoveTarget">addMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getAnyMapAttribute">getAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getBooleanAttribute">getBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getBooleanMapAttribute">getBooleanMapAttribute</a></code> | *No description.* |
@@ -65,7 +67,12 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getNumberMapAttribute">getNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getStringAttribute">getStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getStringMapAttribute">getStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.hasResourceMove">hasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.importFrom">importFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.interpolationForAttribute">interpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveFromId">moveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveTo">moveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveToId">moveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.resetId">resetId</a></code> | *No description.* |
 
 ---
@@ -120,6 +127,12 @@ public resetOverrideLogicalId(): void
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `toHclTerraform` <a name="toHclTerraform" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.toHclTerraform"></a>
+
+```typescript
+public toHclTerraform(): any
+```
+
 ##### `toMetadata` <a name="toMetadata" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.toMetadata"></a>
 
 ```typescript
@@ -133,6 +146,22 @@ public toTerraform(): any
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `addMoveTarget` <a name="addMoveTarget" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.addMoveTarget"></a>
+
+```typescript
+public addMoveTarget(moveTarget: string): void
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `getAnyMapAttribute` <a name="getAnyMapAttribute" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.getAnyMapAttribute"></a>
 
@@ -242,6 +271,30 @@ public getStringMapAttribute(terraformAttribute: string): {[ key: string ]: stri
 
 ---
 
+##### `hasResourceMove` <a name="hasResourceMove" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.hasResourceMove"></a>
+
+```typescript
+public hasResourceMove(): TerraformResourceMoveByTarget | TerraformResourceMoveById
+```
+
+##### `importFrom` <a name="importFrom" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.importFrom"></a>
+
+```typescript
+public importFrom(id: string, provider?: TerraformProvider): void
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.importFrom.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.importFrom.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
 ##### `interpolationForAttribute` <a name="interpolationForAttribute" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.interpolationForAttribute"></a>
 
 ```typescript
@@ -251,6 +304,64 @@ public interpolationForAttribute(terraformAttribute: string): IResolvable
 ###### `terraformAttribute`<sup>Required</sup> <a name="terraformAttribute" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* string
+
+---
+
+##### `moveFromId` <a name="moveFromId" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveFromId"></a>
+
+```typescript
+public moveFromId(id: string): void
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveFromId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `moveTo` <a name="moveTo" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveTo"></a>
+
+```typescript
+public moveTo(moveTarget: string, index?: string | number): void
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveTo.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveTo.parameter.index"></a>
+
+- *Type:* string | number
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `moveToId` <a name="moveToId" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveToId"></a>
+
+```typescript
+public moveToId(id: string): void
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.moveToId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -342,7 +453,7 @@ taskTemplates.TaskTemplates.isTerraformResource(x: any)
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.terraformResourceType">terraformResourceType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.count">count</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.dependsOn">dependsOn</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -446,10 +557,10 @@ public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnectio
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplates.property.count"></a>
 
 ```typescript
-public readonly count: number;
+public readonly count: number | TerraformCount;
 ```
 
-- *Type:* number
+- *Type:* number | cdktf.TerraformCount
 
 ---
 
@@ -638,7 +749,7 @@ const taskTemplatesConfig: taskTemplates.TaskTemplatesConfig = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.count">count</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.dependsOn">dependsOn</a></code> | <code>cdktf.ITerraformDependable[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -664,10 +775,10 @@ public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnectio
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.taskTemplates.TaskTemplatesConfig.property.count"></a>
 
 ```typescript
-public readonly count: number;
+public readonly count: number | TerraformCount;
 ```
 
-- *Type:* number
+- *Type:* number | cdktf.TerraformCount
 
 ---
 

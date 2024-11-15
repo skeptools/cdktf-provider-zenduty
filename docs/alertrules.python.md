@@ -15,7 +15,7 @@ alertrules.Alertrules(
   scope: Construct,
   id: str,
   connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection] = None,
-  count: typing.Union[int, float] = None,
+  count: typing.Union[typing.Union[int, float], TerraformCount] = None,
   depends_on: typing.List[ITerraformDependable] = None,
   for_each: ITerraformIterator = None,
   lifecycle: TerraformResourceLifecycle = None,
@@ -25,7 +25,7 @@ alertrules.Alertrules(
   integration_id: str,
   service_id: str,
   team_id: str,
-  actions: typing.Union[typing.List[AlertrulesActions], IResolvable] = None,
+  actions: typing.Union[IResolvable, typing.List[AlertrulesActions]] = None,
   id: str = None,
   rule_json: str = None
 )
@@ -36,7 +36,7 @@ alertrules.Alertrules(
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The scope in which to define this construct. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.id">id</a></code> | <code>str</code> | The scoped construct ID. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.dependsOn">depends_on</a></code> | <code>typing.List[cdktf.ITerraformDependable]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -46,7 +46,7 @@ alertrules.Alertrules(
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.integrationId">integration_id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#integration_id Alertrules#integration_id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.serviceId">service_id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#service_id Alertrules#service_id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.teamId">team_id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#team_id Alertrules#team_id}. |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.actions">actions</a></code> | <code>typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]</code> | actions block. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.actions">actions</a></code> | <code>typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]</code> | actions block. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.id">id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#id Alertrules#id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.ruleJson">rule_json</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#rule_json Alertrules#rule_json}. |
 
@@ -78,7 +78,7 @@ Must be unique amongst siblings in the same scope
 
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.count"></a>
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -146,7 +146,7 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 
 ##### `actions`<sup>Optional</sup> <a name="actions" id="@skeptools/provider-zenduty.alertrules.Alertrules.Initializer.parameter.actions"></a>
 
-- *Type:* typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]
+- *Type:* typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]
 
 actions block.
 
@@ -181,8 +181,10 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.addOverride">add_override</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.overrideLogicalId">override_logical_id</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.resetOverrideLogicalId">reset_override_logical_id</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.toHclTerraform">to_hcl_terraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.toMetadata">to_metadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.toTerraform">to_terraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.addMoveTarget">add_move_target</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getAnyMapAttribute">get_any_map_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getBooleanAttribute">get_boolean_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getBooleanMapAttribute">get_boolean_map_attribute</a></code> | *No description.* |
@@ -192,7 +194,12 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getNumberMapAttribute">get_number_map_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getStringAttribute">get_string_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getStringMapAttribute">get_string_map_attribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.hasResourceMove">has_resource_move</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.importFrom">import_from</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.interpolationForAttribute">interpolation_for_attribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.moveFromId">move_from_id</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.moveTo">move_to</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.moveToId">move_to_id</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.putActions">put_actions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.resetActions">reset_actions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.resetId">reset_id</a></code> | *No description.* |
@@ -255,6 +262,12 @@ def reset_override_logical_id() -> None
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `to_hcl_terraform` <a name="to_hcl_terraform" id="@skeptools/provider-zenduty.alertrules.Alertrules.toHclTerraform"></a>
+
+```python
+def to_hcl_terraform() -> typing.Any
+```
+
 ##### `to_metadata` <a name="to_metadata" id="@skeptools/provider-zenduty.alertrules.Alertrules.toMetadata"></a>
 
 ```python
@@ -268,6 +281,24 @@ def to_terraform() -> typing.Any
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `add_move_target` <a name="add_move_target" id="@skeptools/provider-zenduty.alertrules.Alertrules.addMoveTarget"></a>
+
+```python
+def add_move_target(
+  move_target: str
+) -> None
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `move_target`<sup>Required</sup> <a name="move_target" id="@skeptools/provider-zenduty.alertrules.Alertrules.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* str
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `get_any_map_attribute` <a name="get_any_map_attribute" id="@skeptools/provider-zenduty.alertrules.Alertrules.getAnyMapAttribute"></a>
 
@@ -395,6 +426,33 @@ def get_string_map_attribute(
 
 ---
 
+##### `has_resource_move` <a name="has_resource_move" id="@skeptools/provider-zenduty.alertrules.Alertrules.hasResourceMove"></a>
+
+```python
+def has_resource_move() -> typing.Union[TerraformResourceMoveByTarget, TerraformResourceMoveById]
+```
+
+##### `import_from` <a name="import_from" id="@skeptools/provider-zenduty.alertrules.Alertrules.importFrom"></a>
+
+```python
+def import_from(
+  id: str,
+  provider: TerraformProvider = None
+) -> None
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.alertrules.Alertrules.importFrom.parameter.id"></a>
+
+- *Type:* str
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.alertrules.Alertrules.importFrom.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
 ##### `interpolation_for_attribute` <a name="interpolation_for_attribute" id="@skeptools/provider-zenduty.alertrules.Alertrules.interpolationForAttribute"></a>
 
 ```python
@@ -409,17 +467,82 @@ def interpolation_for_attribute(
 
 ---
 
+##### `move_from_id` <a name="move_from_id" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveFromId"></a>
+
+```python
+def move_from_id(
+  id: str
+) -> None
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveFromId.parameter.id"></a>
+
+- *Type:* str
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `move_to` <a name="move_to" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveTo"></a>
+
+```python
+def move_to(
+  move_target: str,
+  index: typing.Union[str, typing.Union[int, float]] = None
+) -> None
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `move_target`<sup>Required</sup> <a name="move_target" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveTo.parameter.moveTarget"></a>
+
+- *Type:* str
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveTo.parameter.index"></a>
+
+- *Type:* typing.Union[str, typing.Union[int, float]]
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `move_to_id` <a name="move_to_id" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveToId"></a>
+
+```python
+def move_to_id(
+  id: str
+) -> None
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveToId.parameter.id"></a>
+
+- *Type:* str
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
+
+---
+
 ##### `put_actions` <a name="put_actions" id="@skeptools/provider-zenduty.alertrules.Alertrules.putActions"></a>
 
 ```python
 def put_actions(
-  value: typing.Union[typing.List[AlertrulesActions], IResolvable]
+  value: typing.Union[IResolvable, typing.List[AlertrulesActions]]
 ) -> None
 ```
 
 ###### `value`<sup>Required</sup> <a name="value" id="@skeptools/provider-zenduty.alertrules.Alertrules.putActions.parameter.value"></a>
 
-- *Type:* typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]
+- *Type:* typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]
 
 ---
 
@@ -529,14 +652,14 @@ alertrules.Alertrules.is_terraform_resource(
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.terraformResourceType">terraform_resource_type</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.terraformGeneratorMetadata">terraform_generator_metadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.dependsOn">depends_on</a></code> | <code>typing.List[str]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.provisioners">provisioners</a></code> | <code>typing.List[typing.Union[cdktf.FileProvisioner, cdktf.LocalExecProvisioner, cdktf.RemoteExecProvisioner]]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.actions">actions</a></code> | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList">AlertrulesActionsList</a></code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.actionsInput">actions_input</a></code> | <code>typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.actionsInput">actions_input</a></code> | <code>typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.descriptionInput">description_input</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.idInput">id_input</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.integrationIdInput">integration_id_input</a></code> | <code>str</code> | *No description.* |
@@ -637,10 +760,10 @@ connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection]
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.alertrules.Alertrules.property.count"></a>
 
 ```python
-count: typing.Union[int, float]
+count: typing.Union[typing.Union[int, float], TerraformCount]
 ```
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -707,10 +830,10 @@ actions: AlertrulesActionsList
 ##### `actions_input`<sup>Optional</sup> <a name="actions_input" id="@skeptools/provider-zenduty.alertrules.Alertrules.property.actionsInput"></a>
 
 ```python
-actions_input: typing.Union[typing.List[AlertrulesActions], IResolvable]
+actions_input: typing.Union[IResolvable, typing.List[AlertrulesActions]]
 ```
 
-- *Type:* typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]
+- *Type:* typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]
 
 ---
 
@@ -923,7 +1046,7 @@ from skeptools_cdktf_provider_zenduty import alertrules
 
 alertrules.AlertrulesConfig(
   connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection] = None,
-  count: typing.Union[int, float] = None,
+  count: typing.Union[typing.Union[int, float], TerraformCount] = None,
   depends_on: typing.List[ITerraformDependable] = None,
   for_each: ITerraformIterator = None,
   lifecycle: TerraformResourceLifecycle = None,
@@ -933,7 +1056,7 @@ alertrules.AlertrulesConfig(
   integration_id: str,
   service_id: str,
   team_id: str,
-  actions: typing.Union[typing.List[AlertrulesActions], IResolvable] = None,
+  actions: typing.Union[IResolvable, typing.List[AlertrulesActions]] = None,
   id: str = None,
   rule_json: str = None
 )
@@ -944,7 +1067,7 @@ alertrules.AlertrulesConfig(
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.dependsOn">depends_on</a></code> | <code>typing.List[cdktf.ITerraformDependable]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -954,7 +1077,7 @@ alertrules.AlertrulesConfig(
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.integrationId">integration_id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#integration_id Alertrules#integration_id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.serviceId">service_id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#service_id Alertrules#service_id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.teamId">team_id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#team_id Alertrules#team_id}. |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.actions">actions</a></code> | <code>typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]</code> | actions block. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.actions">actions</a></code> | <code>typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]</code> | actions block. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.id">id</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#id Alertrules#id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.ruleJson">rule_json</a></code> | <code>str</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#rule_json Alertrules#rule_json}. |
 
@@ -973,10 +1096,10 @@ connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection]
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.count"></a>
 
 ```python
-count: typing.Union[int, float]
+count: typing.Union[typing.Union[int, float], TerraformCount]
 ```
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -1081,10 +1204,10 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 ##### `actions`<sup>Optional</sup> <a name="actions" id="@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.actions"></a>
 
 ```python
-actions: typing.Union[typing.List[AlertrulesActions], IResolvable]
+actions: typing.Union[IResolvable, typing.List[AlertrulesActions]]
 ```
 
-- *Type:* typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]
+- *Type:* typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]
 
 actions block.
 
@@ -1171,10 +1294,29 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.allWithMapKey">all_with_map_key</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.computeFqn">compute_fqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.resolve">resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.toString">to_string</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.get">get</a></code> | *No description.* |
+
+---
+
+##### `all_with_map_key` <a name="all_with_map_key" id="@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.allWithMapKey"></a>
+
+```python
+def all_with_map_key(
+  map_key_attribute_name: str
+) -> DynamicListTerraformIterator
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `map_key_attribute_name`<sup>Required</sup> <a name="map_key_attribute_name" id="@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* str
 
 ---
 
@@ -1233,7 +1375,7 @@ the index of the item to return.
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.creationStack">creation_stack</a></code> | <code>typing.List[str]</code> | The creation stack of this resolvable which will be appended to errors thrown during resolution. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.fqn">fqn</a></code> | <code>str</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.internalValue">internal_value</a></code> | <code>typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.internalValue">internal_value</a></code> | <code>typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]</code> | *No description.* |
 
 ---
 
@@ -1264,10 +1406,10 @@ fqn: str
 ##### `internal_value`<sup>Optional</sup> <a name="internal_value" id="@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.internalValue"></a>
 
 ```python
-internal_value: typing.Union[typing.List[AlertrulesActions], IResolvable]
+internal_value: typing.Union[IResolvable, typing.List[AlertrulesActions]]
 ```
 
-- *Type:* typing.Union[typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>], cdktf.IResolvable]
+- *Type:* typing.Union[cdktf.IResolvable, typing.List[<a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>]]
 
 ---
 

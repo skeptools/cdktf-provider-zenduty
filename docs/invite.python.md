@@ -15,7 +15,7 @@ invite.Invite(
   scope: Construct,
   id: str,
   connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection] = None,
-  count: typing.Union[int, float] = None,
+  count: typing.Union[typing.Union[int, float], TerraformCount] = None,
   depends_on: typing.List[ITerraformDependable] = None,
   for_each: ITerraformIterator = None,
   lifecycle: TerraformResourceLifecycle = None,
@@ -32,7 +32,7 @@ invite.Invite(
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | The scope in which to define this construct. |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.id">id</a></code> | <code>str</code> | The scoped construct ID. |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.dependsOn">depends_on</a></code> | <code>typing.List[cdktf.ITerraformDependable]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -70,7 +70,7 @@ Must be unique amongst siblings in the same scope
 
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.invite.Invite.Initializer.parameter.count"></a>
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -141,8 +141,10 @@ If you experience problems setting this value it might not be settable. Please t
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.addOverride">add_override</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.overrideLogicalId">override_logical_id</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.resetOverrideLogicalId">reset_override_logical_id</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.toHclTerraform">to_hcl_terraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.toMetadata">to_metadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.toTerraform">to_terraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.addMoveTarget">add_move_target</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.getAnyMapAttribute">get_any_map_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.getBooleanAttribute">get_boolean_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.getBooleanMapAttribute">get_boolean_map_attribute</a></code> | *No description.* |
@@ -152,7 +154,12 @@ If you experience problems setting this value it might not be settable. Please t
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.getNumberMapAttribute">get_number_map_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.getStringAttribute">get_string_attribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.getStringMapAttribute">get_string_map_attribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.hasResourceMove">has_resource_move</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.importFrom">import_from</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.interpolationForAttribute">interpolation_for_attribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.moveFromId">move_from_id</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.moveTo">move_to</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.moveToId">move_to_id</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.putEmailAccounts">put_email_accounts</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.resetId">reset_id</a></code> | *No description.* |
 
@@ -213,6 +220,12 @@ def reset_override_logical_id() -> None
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `to_hcl_terraform` <a name="to_hcl_terraform" id="@skeptools/provider-zenduty.invite.Invite.toHclTerraform"></a>
+
+```python
+def to_hcl_terraform() -> typing.Any
+```
+
 ##### `to_metadata` <a name="to_metadata" id="@skeptools/provider-zenduty.invite.Invite.toMetadata"></a>
 
 ```python
@@ -226,6 +239,24 @@ def to_terraform() -> typing.Any
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `add_move_target` <a name="add_move_target" id="@skeptools/provider-zenduty.invite.Invite.addMoveTarget"></a>
+
+```python
+def add_move_target(
+  move_target: str
+) -> None
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `move_target`<sup>Required</sup> <a name="move_target" id="@skeptools/provider-zenduty.invite.Invite.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* str
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `get_any_map_attribute` <a name="get_any_map_attribute" id="@skeptools/provider-zenduty.invite.Invite.getAnyMapAttribute"></a>
 
@@ -353,6 +384,33 @@ def get_string_map_attribute(
 
 ---
 
+##### `has_resource_move` <a name="has_resource_move" id="@skeptools/provider-zenduty.invite.Invite.hasResourceMove"></a>
+
+```python
+def has_resource_move() -> typing.Union[TerraformResourceMoveByTarget, TerraformResourceMoveById]
+```
+
+##### `import_from` <a name="import_from" id="@skeptools/provider-zenduty.invite.Invite.importFrom"></a>
+
+```python
+def import_from(
+  id: str,
+  provider: TerraformProvider = None
+) -> None
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.invite.Invite.importFrom.parameter.id"></a>
+
+- *Type:* str
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.invite.Invite.importFrom.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
 ##### `interpolation_for_attribute` <a name="interpolation_for_attribute" id="@skeptools/provider-zenduty.invite.Invite.interpolationForAttribute"></a>
 
 ```python
@@ -364,6 +422,71 @@ def interpolation_for_attribute(
 ###### `terraform_attribute`<sup>Required</sup> <a name="terraform_attribute" id="@skeptools/provider-zenduty.invite.Invite.interpolationForAttribute.parameter.terraformAttribute"></a>
 
 - *Type:* str
+
+---
+
+##### `move_from_id` <a name="move_from_id" id="@skeptools/provider-zenduty.invite.Invite.moveFromId"></a>
+
+```python
+def move_from_id(
+  id: str
+) -> None
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.invite.Invite.moveFromId.parameter.id"></a>
+
+- *Type:* str
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `move_to` <a name="move_to" id="@skeptools/provider-zenduty.invite.Invite.moveTo"></a>
+
+```python
+def move_to(
+  move_target: str,
+  index: typing.Union[str, typing.Union[int, float]] = None
+) -> None
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `move_target`<sup>Required</sup> <a name="move_target" id="@skeptools/provider-zenduty.invite.Invite.moveTo.parameter.moveTarget"></a>
+
+- *Type:* str
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.invite.Invite.moveTo.parameter.index"></a>
+
+- *Type:* typing.Union[str, typing.Union[int, float]]
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `move_to_id` <a name="move_to_id" id="@skeptools/provider-zenduty.invite.Invite.moveToId"></a>
+
+```python
+def move_to_id(
+  id: str
+) -> None
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.invite.Invite.moveToId.parameter.id"></a>
+
+- *Type:* str
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
 
 ---
 
@@ -475,7 +598,7 @@ invite.Invite.is_terraform_resource(
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.terraformResourceType">terraform_resource_type</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.terraformGeneratorMetadata">terraform_generator_metadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.dependsOn">depends_on</a></code> | <code>typing.List[str]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.Invite.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -575,10 +698,10 @@ connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection]
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.invite.Invite.property.count"></a>
 
 ```python
-count: typing.Union[int, float]
+count: typing.Union[typing.Union[int, float], TerraformCount]
 ```
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -721,7 +844,7 @@ from skeptools_cdktf_provider_zenduty import invite
 
 invite.InviteConfig(
   connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection] = None,
-  count: typing.Union[int, float] = None,
+  count: typing.Union[typing.Union[int, float], TerraformCount] = None,
   depends_on: typing.List[ITerraformDependable] = None,
   for_each: ITerraformIterator = None,
   lifecycle: TerraformResourceLifecycle = None,
@@ -738,7 +861,7 @@ invite.InviteConfig(
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteConfig.property.connection">connection</a></code> | <code>typing.Union[cdktf.SSHProvisionerConnection, cdktf.WinrmProvisionerConnection]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.invite.InviteConfig.property.count">count</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.InviteConfig.property.count">count</a></code> | <code>typing.Union[typing.Union[int, float], cdktf.TerraformCount]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteConfig.property.dependsOn">depends_on</a></code> | <code>typing.List[cdktf.ITerraformDependable]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteConfig.property.forEach">for_each</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -763,10 +886,10 @@ connection: typing.Union[SSHProvisionerConnection, WinrmProvisionerConnection]
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.invite.InviteConfig.property.count"></a>
 
 ```python
-count: typing.Union[int, float]
+count: typing.Union[typing.Union[int, float], TerraformCount]
 ```
 
-- *Type:* typing.Union[int, float]
+- *Type:* typing.Union[typing.Union[int, float], cdktf.TerraformCount]
 
 ---
 
@@ -987,10 +1110,29 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsList.allWithMapKey">all_with_map_key</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsList.computeFqn">compute_fqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsList.resolve">resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsList.toString">to_string</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsList.get">get</a></code> | *No description.* |
+
+---
+
+##### `all_with_map_key` <a name="all_with_map_key" id="@skeptools/provider-zenduty.invite.InviteEmailAccountsList.allWithMapKey"></a>
+
+```python
+def all_with_map_key(
+  map_key_attribute_name: str
+) -> DynamicListTerraformIterator
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `map_key_attribute_name`<sup>Required</sup> <a name="map_key_attribute_name" id="@skeptools/provider-zenduty.invite.InviteEmailAccountsList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* str
 
 ---
 
@@ -1351,7 +1493,7 @@ Returns a reversible string representation.
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsOutputReference.property.firstName">first_name</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsOutputReference.property.lastName">last_name</a></code> | <code>str</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsOutputReference.property.role">role</a></code> | <code>typing.Union[int, float]</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsOutputReference.property.internalValue">internal_value</a></code> | <code>typing.Union[<a href="#@skeptools/provider-zenduty.invite.InviteEmailAccounts">InviteEmailAccounts</a>, cdktf.IResolvable]</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.invite.InviteEmailAccountsOutputReference.property.internalValue">internal_value</a></code> | <code>typing.Union[cdktf.IResolvable, <a href="#@skeptools/provider-zenduty.invite.InviteEmailAccounts">InviteEmailAccounts</a>]</code> | *No description.* |
 
 ---
 
@@ -1462,10 +1604,10 @@ role: typing.Union[int, float]
 ##### `internal_value`<sup>Optional</sup> <a name="internal_value" id="@skeptools/provider-zenduty.invite.InviteEmailAccountsOutputReference.property.internalValue"></a>
 
 ```python
-internal_value: typing.Union[InviteEmailAccounts, IResolvable]
+internal_value: typing.Union[IResolvable, InviteEmailAccounts]
 ```
 
-- *Type:* typing.Union[<a href="#@skeptools/provider-zenduty.invite.InviteEmailAccounts">InviteEmailAccounts</a>, cdktf.IResolvable]
+- *Type:* typing.Union[cdktf.IResolvable, <a href="#@skeptools/provider-zenduty.invite.InviteEmailAccounts">InviteEmailAccounts</a>]
 
 ---
 

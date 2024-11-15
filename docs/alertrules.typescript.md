@@ -54,8 +54,10 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.addOverride">addOverride</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.overrideLogicalId">overrideLogicalId</a></code> | Overrides the auto-generated logical ID with a specific ID. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.resetOverrideLogicalId">resetOverrideLogicalId</a></code> | Resets a previously passed logical Id to use the auto-generated logical id again. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.toHclTerraform">toHclTerraform</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.toMetadata">toMetadata</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.toTerraform">toTerraform</a></code> | Adds this resource to the terraform JSON output. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.addMoveTarget">addMoveTarget</a></code> | Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getAnyMapAttribute">getAnyMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getBooleanAttribute">getBooleanAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getBooleanMapAttribute">getBooleanMapAttribute</a></code> | *No description.* |
@@ -65,7 +67,12 @@ Must be unique amongst siblings in the same scope
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getNumberMapAttribute">getNumberMapAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getStringAttribute">getStringAttribute</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.getStringMapAttribute">getStringMapAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.hasResourceMove">hasResourceMove</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.importFrom">importFrom</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.interpolationForAttribute">interpolationForAttribute</a></code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.moveFromId">moveFromId</a></code> | Move the resource corresponding to "id" to this resource. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.moveTo">moveTo</a></code> | Moves this resource to the target resource given by moveTarget. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.moveToId">moveToId</a></code> | Moves this resource to the resource corresponding to "id". |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.putActions">putActions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.resetActions">resetActions</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.resetId">resetId</a></code> | *No description.* |
@@ -123,6 +130,12 @@ public resetOverrideLogicalId(): void
 
 Resets a previously passed logical Id to use the auto-generated logical id again.
 
+##### `toHclTerraform` <a name="toHclTerraform" id="@skeptools/provider-zenduty.alertrules.Alertrules.toHclTerraform"></a>
+
+```typescript
+public toHclTerraform(): any
+```
+
 ##### `toMetadata` <a name="toMetadata" id="@skeptools/provider-zenduty.alertrules.Alertrules.toMetadata"></a>
 
 ```typescript
@@ -136,6 +149,22 @@ public toTerraform(): any
 ```
 
 Adds this resource to the terraform JSON output.
+
+##### `addMoveTarget` <a name="addMoveTarget" id="@skeptools/provider-zenduty.alertrules.Alertrules.addMoveTarget"></a>
+
+```typescript
+public addMoveTarget(moveTarget: string): void
+```
+
+Adds a user defined moveTarget string to this resource to be later used in .moveTo(moveTarget) to resolve the location of the move.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.alertrules.Alertrules.addMoveTarget.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The string move target that will correspond to this resource.
+
+---
 
 ##### `getAnyMapAttribute` <a name="getAnyMapAttribute" id="@skeptools/provider-zenduty.alertrules.Alertrules.getAnyMapAttribute"></a>
 
@@ -245,6 +274,30 @@ public getStringMapAttribute(terraformAttribute: string): {[ key: string ]: stri
 
 ---
 
+##### `hasResourceMove` <a name="hasResourceMove" id="@skeptools/provider-zenduty.alertrules.Alertrules.hasResourceMove"></a>
+
+```typescript
+public hasResourceMove(): TerraformResourceMoveByTarget | TerraformResourceMoveById
+```
+
+##### `importFrom` <a name="importFrom" id="@skeptools/provider-zenduty.alertrules.Alertrules.importFrom"></a>
+
+```typescript
+public importFrom(id: string, provider?: TerraformProvider): void
+```
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.alertrules.Alertrules.importFrom.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+###### `provider`<sup>Optional</sup> <a name="provider" id="@skeptools/provider-zenduty.alertrules.Alertrules.importFrom.parameter.provider"></a>
+
+- *Type:* cdktf.TerraformProvider
+
+---
+
 ##### `interpolationForAttribute` <a name="interpolationForAttribute" id="@skeptools/provider-zenduty.alertrules.Alertrules.interpolationForAttribute"></a>
 
 ```typescript
@@ -257,15 +310,73 @@ public interpolationForAttribute(terraformAttribute: string): IResolvable
 
 ---
 
+##### `moveFromId` <a name="moveFromId" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveFromId"></a>
+
+```typescript
+public moveFromId(id: string): void
+```
+
+Move the resource corresponding to "id" to this resource.
+
+Note that the resource being moved from must be marked as moved using it's instance function.
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveFromId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource being moved from, e.g. "aws_s3_bucket.example".
+
+---
+
+##### `moveTo` <a name="moveTo" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveTo"></a>
+
+```typescript
+public moveTo(moveTarget: string, index?: string | number): void
+```
+
+Moves this resource to the target resource given by moveTarget.
+
+###### `moveTarget`<sup>Required</sup> <a name="moveTarget" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveTo.parameter.moveTarget"></a>
+
+- *Type:* string
+
+The previously set user defined string set by .addMoveTarget() corresponding to the resource to move to.
+
+---
+
+###### `index`<sup>Optional</sup> <a name="index" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveTo.parameter.index"></a>
+
+- *Type:* string | number
+
+Optional The index corresponding to the key the resource is to appear in the foreach of a resource to move to.
+
+---
+
+##### `moveToId` <a name="moveToId" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveToId"></a>
+
+```typescript
+public moveToId(id: string): void
+```
+
+Moves this resource to the resource corresponding to "id".
+
+###### `id`<sup>Required</sup> <a name="id" id="@skeptools/provider-zenduty.alertrules.Alertrules.moveToId.parameter.id"></a>
+
+- *Type:* string
+
+Full id of resource to move to, e.g. "aws_s3_bucket.example".
+
+---
+
 ##### `putActions` <a name="putActions" id="@skeptools/provider-zenduty.alertrules.Alertrules.putActions"></a>
 
 ```typescript
-public putActions(value: AlertrulesActions[] | IResolvable): void
+public putActions(value: IResolvable | AlertrulesActions[]): void
 ```
 
 ###### `value`<sup>Required</sup> <a name="value" id="@skeptools/provider-zenduty.alertrules.Alertrules.putActions.parameter.value"></a>
 
-- *Type:* <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] | cdktf.IResolvable
+- *Type:* cdktf.IResolvable | <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]
 
 ---
 
@@ -369,14 +480,14 @@ alertrules.Alertrules.isTerraformResource(x: any)
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.terraformResourceType">terraformResourceType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.terraformGeneratorMetadata">terraformGeneratorMetadata</a></code> | <code>cdktf.TerraformProviderGeneratorMetadata</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.count">count</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.dependsOn">dependsOn</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.provider">provider</a></code> | <code>cdktf.TerraformProvider</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.provisioners">provisioners</a></code> | <code>cdktf.FileProvisioner \| cdktf.LocalExecProvisioner \| cdktf.RemoteExecProvisioner[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.actions">actions</a></code> | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList">AlertrulesActionsList</a></code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.actionsInput">actionsInput</a></code> | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] \| cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.actionsInput">actionsInput</a></code> | <code>cdktf.IResolvable \| <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.descriptionInput">descriptionInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.idInput">idInput</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.Alertrules.property.integrationIdInput">integrationIdInput</a></code> | <code>string</code> | *No description.* |
@@ -477,10 +588,10 @@ public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnectio
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.alertrules.Alertrules.property.count"></a>
 
 ```typescript
-public readonly count: number;
+public readonly count: number | TerraformCount;
 ```
 
-- *Type:* number
+- *Type:* number | cdktf.TerraformCount
 
 ---
 
@@ -547,10 +658,10 @@ public readonly actions: AlertrulesActionsList;
 ##### `actionsInput`<sup>Optional</sup> <a name="actionsInput" id="@skeptools/provider-zenduty.alertrules.Alertrules.property.actionsInput"></a>
 
 ```typescript
-public readonly actionsInput: AlertrulesActions[] | IResolvable;
+public readonly actionsInput: IResolvable | AlertrulesActions[];
 ```
 
-- *Type:* <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] | cdktf.IResolvable
+- *Type:* cdktf.IResolvable | <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]
 
 ---
 
@@ -765,7 +876,7 @@ const alertrulesConfig: alertrules.AlertrulesConfig = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.connection">connection</a></code> | <code>cdktf.SSHProvisionerConnection \| cdktf.WinrmProvisionerConnection</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.count">count</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.count">count</a></code> | <code>number \| cdktf.TerraformCount</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.dependsOn">dependsOn</a></code> | <code>cdktf.ITerraformDependable[]</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.forEach">forEach</a></code> | <code>cdktf.ITerraformIterator</code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.lifecycle">lifecycle</a></code> | <code>cdktf.TerraformResourceLifecycle</code> | *No description.* |
@@ -775,7 +886,7 @@ const alertrulesConfig: alertrules.AlertrulesConfig = { ... }
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.integrationId">integrationId</a></code> | <code>string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#integration_id Alertrules#integration_id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.serviceId">serviceId</a></code> | <code>string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#service_id Alertrules#service_id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.teamId">teamId</a></code> | <code>string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#team_id Alertrules#team_id}. |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.actions">actions</a></code> | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] \| cdktf.IResolvable</code> | actions block. |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.actions">actions</a></code> | <code>cdktf.IResolvable \| <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]</code> | actions block. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.id">id</a></code> | <code>string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#id Alertrules#id}. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.ruleJson">ruleJson</a></code> | <code>string</code> | Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zenduty/r/alertrules#rule_json Alertrules#rule_json}. |
 
@@ -794,10 +905,10 @@ public readonly connection: SSHProvisionerConnection | WinrmProvisionerConnectio
 ##### `count`<sup>Optional</sup> <a name="count" id="@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.count"></a>
 
 ```typescript
-public readonly count: number;
+public readonly count: number | TerraformCount;
 ```
 
-- *Type:* number
+- *Type:* number | cdktf.TerraformCount
 
 ---
 
@@ -902,10 +1013,10 @@ Docs at Terraform Registry: {@link https://www.terraform.io/docs/providers/zendu
 ##### `actions`<sup>Optional</sup> <a name="actions" id="@skeptools/provider-zenduty.alertrules.AlertrulesConfig.property.actions"></a>
 
 ```typescript
-public readonly actions: AlertrulesActions[] | IResolvable;
+public readonly actions: IResolvable | AlertrulesActions[];
 ```
 
-- *Type:* <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] | cdktf.IResolvable
+- *Type:* cdktf.IResolvable | <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]
 
 actions block.
 
@@ -988,10 +1099,27 @@ whether the list is wrapping a set (will add tolist() to be able to access an it
 
 | **Name** | **Description** |
 | --- | --- |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.allWithMapKey">allWithMapKey</a></code> | Creating an iterator for this complex list. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.computeFqn">computeFqn</a></code> | *No description.* |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.resolve">resolve</a></code> | Produce the Token's value at resolution time. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.toString">toString</a></code> | Return a string representation of this resolvable object. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.get">get</a></code> | *No description.* |
+
+---
+
+##### `allWithMapKey` <a name="allWithMapKey" id="@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.allWithMapKey"></a>
+
+```typescript
+public allWithMapKey(mapKeyAttributeName: string): DynamicListTerraformIterator
+```
+
+Creating an iterator for this complex list.
+
+The list will be converted into a map with the mapKeyAttributeName as the key.
+
+###### `mapKeyAttributeName`<sup>Required</sup> <a name="mapKeyAttributeName" id="@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.allWithMapKey.parameter.mapKeyAttributeName"></a>
+
+- *Type:* string
 
 ---
 
@@ -1046,7 +1174,7 @@ the index of the item to return.
 | --- | --- | --- |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.creationStack">creationStack</a></code> | <code>string[]</code> | The creation stack of this resolvable which will be appended to errors thrown during resolution. |
 | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.fqn">fqn</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.internalValue">internalValue</a></code> | <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] \| cdktf.IResolvable</code> | *No description.* |
+| <code><a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.internalValue">internalValue</a></code> | <code>cdktf.IResolvable \| <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]</code> | *No description.* |
 
 ---
 
@@ -1077,10 +1205,10 @@ public readonly fqn: string;
 ##### `internalValue`<sup>Optional</sup> <a name="internalValue" id="@skeptools/provider-zenduty.alertrules.AlertrulesActionsList.property.internalValue"></a>
 
 ```typescript
-public readonly internalValue: AlertrulesActions[] | IResolvable;
+public readonly internalValue: IResolvable | AlertrulesActions[];
 ```
 
-- *Type:* <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[] | cdktf.IResolvable
+- *Type:* cdktf.IResolvable | <a href="#@skeptools/provider-zenduty.alertrules.AlertrulesActions">AlertrulesActions</a>[]
 
 ---
 

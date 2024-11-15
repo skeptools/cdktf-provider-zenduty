@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 // https://www.terraform.io/docs/providers/zenduty/d/priorities
 // generated from terraform resource schema
 
@@ -135,7 +140,7 @@ export class DataZendutyPriorities extends cdktf.TerraformDataSource {
       terraformResourceType: 'zenduty_priorities',
       terraformGeneratorMetadata: {
         providerName: 'zenduty',
-        providerVersion: '0.1.9',
+        providerVersion: '0.2.5',
         providerVersionConstraint: '~> 0'
       },
       provider: config.provider,

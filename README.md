@@ -1,7 +1,9 @@
 
-# Terraform CDK zenduty Provider ~> 0
+# Terraform CDK zenduty Provider tracks ~> 0
 
 This repo builds and publishes the Terraform zenduty Provider bindings for [CDK for Terraform](https://cdk.tf).
+
+Is based directly on zenduty 0.2.5
 
 ## Available Packages
 
@@ -61,7 +63,8 @@ This project is explicitly not tracking the Terraform zenduty Provider version 1
 These are the upstream dependencies:
 
 - [Terraform CDK](https://cdk.tf)
-- [Terraform zenduty Provider](https://github.com/terraform-providers/terraform-provider-zenduty)
+- [Terraform zenduty Provider](https://registry.terraform.io/providers/Zenduty/zenduty/0.2.5)
+    - This links to the minimum version being tracked, you can find the latest released version [in our releases](https://github.com/cdktf/cdktf-provider-zenduty/releases)
 - [Terraform Engine](https://terraform.io)
 
 If there are breaking changes (backward incompatible) in any of the above, the major version of this project will be bumped.

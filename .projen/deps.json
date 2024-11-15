@@ -7,7 +7,7 @@
     },
     {
       "name": "@cdktf/provider-project",
-      "version": "0.5.10",
+      "version": "0.5.14",
       "type": "build"
     },
     {

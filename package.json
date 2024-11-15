@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@actions/core": "^1.1.0",
-    "@cdktf/provider-project": "0.5.10",
+    "@cdktf/provider-project": "0.5.14",
     "@types/node": "^16",
     "cdktf": "^0.14.0",
     "cdktf-cli": "^0.14.0",

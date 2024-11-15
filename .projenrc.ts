@@ -7,7 +7,7 @@ const project = new CdktfProviderProject({
   cdktfVersion: "^0.14.0",
   constructsVersion: "^10.0.0",
   defaultReleaseBranch: "main",
-  devDeps: ["@cdktf/provider-project@0.5.10"],
+  devDeps: ["@cdktf/provider-project@0.5.14"],
   name: "@skeptools/cdktf-provider-zenduty",
   githubNamespace: "skeptools",
   projenrcTs: true,

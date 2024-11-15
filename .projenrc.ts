@@ -20,6 +20,7 @@ const project = new CdktfProviderProject({
   terraformProvider: "Zenduty/zenduty@~> 0",
   releaseToNpm: true,
   npmAccess: NpmAccess.PUBLIC,
+  minNodeVersion: '18.12.0',
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */

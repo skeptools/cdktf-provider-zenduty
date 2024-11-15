@@ -1,6 +1,9 @@
-# Submodules <a name="Submodules" id="submodules"></a>
+# API Reference <a name="API Reference" id="api-reference"></a>
+
+## Submodules <a name="Submodules" id="submodules"></a>
 
 The following submodules are available:
+
 - [accountRole](./accountRole.go.md)
 - [alertrules](./alertrules.go.md)
 - [assignAccountRole](./assignAccountRole.go.md)
@@ -40,3 +43,8 @@ The following submodules are available:
 - [teamPermissions](./teamPermissions.go.md)
 - [teams](./teams.go.md)
 - [user](./user.go.md)
+
+
+
+
+

@@ -160,10 +160,10 @@
     fs-extra "^8.1.0"
     jsii-srcmak "^0.1.741"
 
-"@cdktf/provider-project@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@cdktf/provider-project/-/provider-project-0.5.0.tgz#516a12d2ee203cc428069f228cdf29a6a470205c"
-  integrity sha512-HiIkwen1BSk5pM3CJf88i2xOAwqFvm5b7Ow6w5As5dI9riYtHTU0aZ2ONOHnCzKyfj0UXGIWDKJKvzCJP9VgcQ==
+"@cdktf/provider-project@0.5.10":
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/@cdktf/provider-project/-/provider-project-0.5.10.tgz#3d1f91178dce5e5f6e0742ba495b0f8376040e8a"
+  integrity sha512-nDtqIZVwOMgqtKLDz7QchlhqxQhjQGWrN9M5IR8fMOqJNIVMYkyEi5jJxtsKym2PJ64TKQMfFTWOOtYxTF4nZw==
   dependencies:
     change-case "^4.1.2"
     fs-extra "^10.1.0"

@@ -317,6 +317,10 @@
       },
       "steps": [
         {
+          "name": "Clear the changelog so that it doesn't get published twice",
+          "exec": "rm -f $CHANGELOG"
+        },
+        {
           "builtin": "release/bump-version"
         }
       ]
@@ -332,19 +336,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@cdktf/provider-project,jsii-docgen,jsii-rosetta,jsii,node-fetch'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@cdktf/provider-project,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@cdktf/provider-project,jsii-docgen,jsii-rosetta,jsii,node-fetch'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@cdktf/provider-project,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@cdktf/provider-project,jsii-docgen,jsii-rosetta,jsii,node-fetch'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@cdktf/provider-project,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@cdktf/provider-project,jsii-docgen,jsii-rosetta,jsii,node-fetch'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@cdktf/provider-project,jsii-rosetta,jsii'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@cdktf/provider-project,jsii-docgen,jsii-rosetta,jsii,node-fetch'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@cdktf/provider-project,jsii-rosetta,jsii'"
         },
         {
           "exec": "yarn install --check-files"

@@ -35,8 +35,7 @@ jobs:
           git config user.email "github-actions@github.com"
       - name: Setup Node.js
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
-        with:
-          node-version: 16.14.0
+        with: {}
       - name: Install dependencies
         run: yarn install --check-files --frozen-lockfile
       - name: build
@@ -60,8 +59,7 @@ jobs:
     steps:
       - name: Setup Node.js
         uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65
-        with:
-          node-version: 16.14.0
+        with: {}
       - name: Setup Go
         uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe
         with:
@@ -88,6 +86,17 @@ jobs:
         run: cd .repo/dist/go && copywrite headers
       - name: Remove copywrite hcl file
         run: rm -f .repo/dist/go/.copywrite.hcl
+      - name: Remove some text from the README that doesn't apply to Go
+        run: |-
+          sed -i 's/# CDKTF prebuilt bindings for/# CDKTF Go bindings for/' .repo/dist/go/*/README.md
+          sed -i -e '/## Available Packages/,/### Go/!b' -e '/### Go/!d;p; s/### Go/## Go Package/' -e 'd' .repo/dist/go/*/README.md
+          sed -i 's/### Go/## Go Package/' .repo/dist/go/*/README.md
+          sed -i -e '/API.typescript.md/,/You can also visit a hosted version/!b' -e 'd' .repo/dist/go/*/README.md
+          sed -i 's|Find auto-generated docs for this provider here:|Find auto-generated docs for this provider [here](https://github.com/skeptools/cdktf-provider-zenduty/blob/main/docs/API.go.md).|' .repo/dist/go/*/README.md
+          sed -i -e '/### Provider Version/,/The provider version can be adjusted/!b' -e 'd' .repo/dist/go/*/README.md
+        continue-on-error: true
+      - name: Copy the README file to the parent directory
+        run: cp .repo/dist/go/*/README.md .repo/dist/go/README.md
       - name: Collect go Artifact
         run: mv .repo/dist dist
       - name: Release
